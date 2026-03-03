@@ -203,3 +203,18 @@ Then in GitHub repo Settings → Pages:
 | 2026-03-03 | Recovered CLAUDE.md after Claude reinstall; committed to GitHub repo (SanjivKK/archbim) so it is never lost again |
 | 2026-03-03 | Added logo image (38px) to navbar + footer, favicon link in head of index.html; images at C:\victus\Website\images\ — need to be git-added + pushed from Windows |
 | 2026-03-03 | LemonSqueezy approved; logo sizes increased (nav 48px, footer 36px); homepage split into two product categories: Revit Add-ins + Web Apps; Core Layout (SanjivKK/core-site) added as first Web App card linking to https://sanjivkk.github.io/core-site/ |
+| 2026-03-03 | Removed last NeoBIM reference (launch.json renamed to ArchBIM Website); About heading → "Built by an Architect, for Architects"; homepage cards shortened to one-liner hooks; Core Layout description updated from LinkedIn post (UK residential regs, concept-stage 3D volumes); all pushed |
+
+## 11. Pending Owner Action Items
+
+| Priority | Item | Notes |
+|----------|------|-------|
+| 🔴 High | Create Survey Coordinates product on LemonSqueezy | Then update checkout URL in survey-coordinates/index.html |
+| 🔴 High | Crop logo.png / favicon.png — remove excess transparent padding | Images at C:\victus\Website\images\ — crop tight to artwork |
+| 🟡 Medium | Edit demo videos — replace Autodesk App Store URL with archbim.co.in | YouTube videos exist; audio needs re-recording or editing |
+| 🟡 Medium | Create Core Layout product page (core-layout/index.html) | Embed YouTube demo video; mirror survey-coordinates page structure |
+| 🟡 Medium | Add remaining Revit add-ins to homepage as Coming Soon cards | DimData, DisDim, MaterialsByRoom, NWC, SeparationLines, WallSleeves |
+| 🟡 Medium | Create Privacy Policy, Terms of Service, Refund Policy pages | Footer links are live but pages 404 — LemonSqueezy requires these |
+| 🟢 Low | DNS propagation for archbim.co.in | GoDaddy WHOIS verification support ticket — check status |
+| 🟢 Low | ImprovMX email forwarding | Will auto-activate once DNS propagates |
+| 🟢 Low | Enable "Enforce HTTPS" on GitHub Pages | Do after DNS resolves |
