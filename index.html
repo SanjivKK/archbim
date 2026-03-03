@@ -48,7 +48,7 @@
     .brand {
       display: flex; align-items: center;
     }
-    .brand img { height: 38px; width: auto; display: block; }
+    .brand img { height: 48px; width: auto; display: block; }
     .nav-links { display: flex; gap: 28px; }
     .nav-links a { font-size: .9rem; color: var(--text-2); transition: color .2s; }
     .nav-links a:hover { color: var(--text-1); }
@@ -183,11 +183,32 @@
     footer { border-top: 1px solid var(--border); padding: 36px 0; background: var(--bg-0); }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
     .footer-brand { display: flex; align-items: center; }
-    .footer-brand img { height: 28px; width: auto; display: block; }
+    .footer-brand img { height: 36px; width: auto; display: block; }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { font-size: .85rem; color: var(--text-3); transition: color .2s; }
     .footer-links a:hover { color: var(--text-2); }
     .footer-copy { font-size: .82rem; color: var(--text-3); }
+
+    /* ── Product categories ── */
+    .category-block { margin-top: 56px; }
+    .category-block:first-of-type { margin-top: 48px; }
+    .category-heading {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 6px;
+    }
+    .category-heading h3 {
+      font-size: 1rem; font-weight: 700; color: var(--text-1);
+    }
+    .category-pill {
+      font-size: .68rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; padding: 2px 9px; border-radius: 100px;
+    }
+    .pill-desktop { background: rgba(59,130,246,.12); color: #93c5fd; border: 1px solid rgba(59,130,246,.25); }
+    .pill-web     { background: rgba(6,182,212,.12);  color: #67e8f9; border: 1px solid rgba(6,182,212,.25); }
+    .category-meta { font-size: .82rem; color: var(--text-3); margin-bottom: 0; }
+    .category-divider {
+      border: none; border-top: 1px solid var(--border); margin: 52px 0 0;
+    }
 
     /* ── Responsive ── */
     @media (max-width: 800px) {
@@ -209,7 +230,7 @@
           <img src="/images/logo.png" alt="ArchBIM" />
         </a>
         <div class="nav-links">
-          <a href="#add-ins">Add-ins</a>
+          <a href="#products">Products</a>
           <a href="#about">About</a>
           <a href="mailto:support@archbim.co.in">Support</a>
         </div>
@@ -220,63 +241,112 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="hero-eyebrow">🏗️ &nbsp; Revit Add-ins for AEC</div>
-      <h1>Precision tools for<br /><span>Revit professionals</span></h1>
+      <div class="hero-eyebrow">🏗️ &nbsp; Professional BIM Tools for AEC</div>
+      <h1>Precision tools for<br /><span>BIM professionals</span></h1>
       <p>
-        Purpose-built add-ins that solve real problems on real projects —
-        accurate, fast, and designed to fit your existing workflow.
+        Desktop add-ins for Revit and browser-based BIM apps —
+        purpose-built to solve real problems on real projects.
       </p>
       <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
         <a href="/survey-coordinates/" class="btn-cta" style="font-size:.92rem;padding:12px 26px;">Try Survey Coordinates free →</a>
-        <a href="#add-ins" style="font-size:.88rem;color:var(--text-2);">See all add-ins ↓</a>
+        <a href="#products" style="font-size:.88rem;color:var(--text-2);">See all products ↓</a>
       </div>
       <div style="font-size:.8rem;color:var(--text-3);">30-day free trial &nbsp;·&nbsp; No credit card &nbsp;·&nbsp; $12 to unlock</div>
     </div>
   </section>
 
-  <!-- Add-ins -->
-  <section class="section" id="add-ins">
+  <!-- Products -->
+  <section class="section" id="products">
     <div class="container">
-      <div class="section-label">Add-ins</div>
-      <h2 class="section-title">Available now</h2>
+      <div class="section-label">Products</div>
+      <h2 class="section-title">Tools that get the job done</h2>
       <p class="section-sub">
-        Each add-in solves one problem well. No bloat, no subscription.
-        Try free for 30 days — $12 to keep.
+        Desktop add-ins for Revit and browser-based BIM tools.
+        No bloat, no subscriptions — everything priced fairly.
       </p>
 
-      <div class="addins-grid">
-
-        <!-- Survey Coordinates -->
-        <div class="addin-card">
-          <span class="addin-icon">📍</span>
-          <div class="addin-tag tag-live">✓ &nbsp; Available</div>
-          <h3>Survey Coordinates</h3>
-          <p>
-            Automatically captures and updates real-world Northing &amp; Easting
-            values on Site and Planting family instances — so you can schedule,
-            tag, and relocate elements with survey-grade precision.
-          </p>
-          <div class="addin-footer">
-            <div class="addin-price">$12 &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">one-time · <span style="color:var(--green)">30-day free trial</span></span></div>
-            <a href="/survey-coordinates/" class="addin-link">Learn more →</a>
-          </div>
+      <!-- ── Revit Add-ins ── -->
+      <div class="category-block">
+        <div class="category-heading">
+          <h3>🖥️ Revit Add-ins</h3>
+          <span class="category-pill pill-desktop">Desktop</span>
         </div>
+        <p class="category-meta">Windows · Revit 2024 / 2025 / 2026 · One-time license</p>
+        <div class="addins-grid">
 
-        <!-- Placeholder 2 -->
-        <div class="addin-card coming-soon">
-          <span class="addin-icon">📦</span>
-          <div class="addin-tag tag-soon">Coming soon</div>
-          <h3>More add-ins</h3>
-          <p>
-            Additional tools for material takeoffs, wall sleeves, dimension
-            data, and more are in development.
-          </p>
-          <div class="addin-footer">
-            <div class="addin-price" style="color:var(--text-3)">— TBA —</div>
+          <!-- Survey Coordinates -->
+          <div class="addin-card">
+            <span class="addin-icon">📍</span>
+            <div class="addin-tag tag-live">✓ &nbsp; Available</div>
+            <h3>Survey Coordinates</h3>
+            <p>
+              Capture and update real-world Northing &amp; Easting on Revit
+              Site and Planting elements — in bulk, in seconds.
+            </p>
+            <div class="addin-footer">
+              <div class="addin-price">$12 &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">one-time · <span style="color:var(--green)">30-day free trial</span></span></div>
+              <a href="/survey-coordinates/" class="addin-link">Learn more →</a>
+            </div>
           </div>
-        </div>
 
+          <!-- More add-ins placeholder -->
+          <div class="addin-card coming-soon">
+            <span class="addin-icon">📦</span>
+            <div class="addin-tag tag-soon">Coming soon</div>
+            <h3>More add-ins</h3>
+            <p>
+              More Revit tools in development.
+            </p>
+            <div class="addin-footer">
+              <div class="addin-price" style="color:var(--text-3)">— TBA —</div>
+            </div>
+          </div>
+
+        </div>
       </div>
+
+      <hr class="category-divider" />
+
+      <!-- ── Web Apps ── -->
+      <div class="category-block">
+        <div class="category-heading">
+          <h3>🌐 Web Apps</h3>
+          <span class="category-pill pill-web">Browser</span>
+        </div>
+        <p class="category-meta">No install · Works on any device · Free to use</p>
+        <div class="addins-grid">
+
+          <!-- Core Layout -->
+          <div class="addin-card">
+            <span class="addin-icon">🏢</span>
+            <div class="addin-tag tag-live">✓ &nbsp; Beta</div>
+            <h3>Core Layout</h3>
+            <p>
+              Set floor count, storey height, and layout — Core instantly
+              models your lifts, shafts, and stairs in a live 3D viewport.
+            </p>
+            <div class="addin-footer">
+              <div class="addin-price">Free &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">web app · no account needed</span></div>
+              <a href="https://sanjivkk.github.io/core-site/" class="addin-link" target="_blank" rel="noopener">Open app →</a>
+            </div>
+          </div>
+
+          <!-- More web apps placeholder -->
+          <div class="addin-card coming-soon">
+            <span class="addin-icon">🔭</span>
+            <div class="addin-tag tag-soon">Coming soon</div>
+            <h3>More web tools</h3>
+            <p>
+              More browser-based BIM tools on the roadmap.
+            </p>
+            <div class="addin-footer">
+              <div class="addin-price" style="color:var(--text-3)">— TBA —</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -286,10 +356,10 @@
       <div class="about-inner">
         <div>
           <div class="section-label">About ArchBIM</div>
-          <h2>Built by a BIM professional, for BIM professionals</h2>
+          <h2>Built by an Architect, for Architects</h2>
           <p>
-            ArchBIM creates focused, reliable Revit add-ins that solve real
-            problems on real projects — not theoretical edge cases.
+            ArchBIM creates focused, reliable tools that solve real problems
+            on real projects — not theoretical edge cases.
           </p>
           <p>
             Every tool is designed around the practical constraints of AEC
