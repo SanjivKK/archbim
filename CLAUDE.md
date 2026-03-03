@@ -202,3 +202,4 @@ Then in GitHub repo Settings → Pages:
 | 2026-03-02 | Added 30-day free trial (TrialManager.cs, HMAC+SID fingerprint); price changed $49→$12; website updated with 2-tier pricing (trial + full); pushed to GitHub SanjivKK/archbim; DNS pending GoDaddy WHOIS verification support call |
 | 2026-03-03 | Recovered CLAUDE.md after Claude reinstall; committed to GitHub repo (SanjivKK/archbim) so it is never lost again |
 | 2026-03-03 | Added logo image (38px) to navbar + footer, favicon link in head of index.html; images at C:\victus\Website\images\ — need to be git-added + pushed from Windows |
+| 2026-03-03 | LemonSqueezy approved; logo sizes increased (nav 48px, footer 36px); homepage split into two product categories: Revit Add-ins + Web Apps; Core Layout (SanjivKK/core-site) added as first Web App card linking to https://sanjivkk.github.io/core-site/ |

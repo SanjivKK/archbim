@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ArchBIM Website",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": ["/c", "npx", "serve", "-p", "5500", "C:/victus/Website"],
+      "port": 5500
+    }
+  ]
+}
