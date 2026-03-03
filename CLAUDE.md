@@ -201,3 +201,4 @@ Then in GitHub repo Settings → Pages:
 | 2026-02-28 | Dropped "Insights" suffix → brand is now simply "ArchBIM"; website restructured: homepage at index.html + product page at survey-coordinates/index.html; GitHub repo to be named "archbim" |
 | 2026-03-02 | Added 30-day free trial (TrialManager.cs, HMAC+SID fingerprint); price changed $49→$12; website updated with 2-tier pricing (trial + full); pushed to GitHub SanjivKK/archbim; DNS pending GoDaddy WHOIS verification support call |
 | 2026-03-03 | Recovered CLAUDE.md after Claude reinstall; committed to GitHub repo (SanjivKK/archbim) so it is never lost again |
+| 2026-03-03 | Added logo image (38px) to navbar + footer, favicon link in head of index.html; images at C:\victus\Website\images\ — need to be git-added + pushed from Windows |
