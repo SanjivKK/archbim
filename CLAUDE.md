@@ -218,3 +218,33 @@ Then in GitHub repo Settings → Pages:
 | 🟢 Low | DNS propagation for archbim.co.in | GoDaddy WHOIS verification support ticket — check status |
 | 🟢 Low | ImprovMX email forwarding | Will auto-activate once DNS propagates |
 | 🟢 Low | Enable "Enforce HTTPS" on GitHub Pages | Do after DNS resolves |
+| 🔵 Future | Split website into private source repo + public deploy repo | See Section 12 — do when a build step or secrets are introduced |
+
+---
+
+## 12. Repo Split Strategy (Future — Not Urgent)
+
+Follow the same pattern as **Core** (private source) → **core-site** (public deploy):
+
+**Trigger:** Do this when any of the following are introduced:
+- A build step (Vite, webpack, etc.)
+- A backend or serverless functions
+- API keys, `.env` files, or any secrets
+- Anything in the source that should not be publicly visible
+
+**Target pattern:**
+| Repo | Visibility | Contents |
+|------|-----------|----------|
+| `archbim-source` (new, private) | Private | Source code, CLAUDE.md, build config, `.env`, dev notes |
+| `archbim` (existing, public) | Public | Compiled output only — what GitHub Pages serves |
+
+**Right now — no action needed:**
+- The site is pure HTML/CSS with no build step and no secrets
+- CLAUDE.md contains no sensitive keys or credentials
+- Keep the current single-repo setup until a build step is introduced
+
+**When the time comes:**
+1. Create new private repo `archbim-source`
+2. Move all source + CLAUDE.md there
+3. Keep `archbim` (public) as the deploy target only — push built output via CI/CD (GitHub Actions)
+4. Update this CLAUDE.md accordingly
