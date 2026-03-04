@@ -216,7 +216,7 @@ Then in GitHub repo Settings → Pages:
 | 🟡 Medium | Add remaining Revit add-ins to homepage as Coming Soon cards | DimData, DisDim, MaterialsByRoom, NWC, SeparationLines, WallSleeves |
 | 🟡 Medium | Create Privacy Policy, Terms of Service, Refund Policy pages | Footer links are live but pages 404 — LemonSqueezy requires these |
 | 🟢 Low | DNS propagation for archbim.co.in | GoDaddy WHOIS verification support ticket — check status |
-| 🟢 Low | ImprovMX email forwarding | Will auto-activate once DNS propagates |
+| ✅ Done | ImprovMX email forwarding | Active — both * and support@archbim.co.in forwarding to kapilasanjiv@gmail.com |
 | 🟢 Low | Enable "Enforce HTTPS" on GitHub Pages | Do after DNS resolves |
 | 🔵 Future | Split website into private source repo + public deploy repo | See Section 12 — do when a build step or secrets are introduced |
 
