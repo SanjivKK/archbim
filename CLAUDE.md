@@ -204,12 +204,13 @@ Then in GitHub repo Settings → Pages:
 | 2026-03-03 | Added logo image (38px) to navbar + footer, favicon link in head of index.html; images at C:\victus\Website\images\ — need to be git-added + pushed from Windows |
 | 2026-03-03 | LemonSqueezy approved; logo sizes increased (nav 48px, footer 36px); homepage split into two product categories: Revit Add-ins + Web Apps; Core Layout (SanjivKK/core-site) added as first Web App card linking to https://sanjivkk.github.io/core-site/ |
 | 2026-03-03 | Removed last NeoBIM reference (launch.json renamed to ArchBIM Website); About heading → "Built by an Architect, for Architects"; homepage cards shortened to one-liner hooks; Core Layout description updated from LinkedIn post (UK residential regs, concept-stage 3D volumes); all pushed |
+| 2026-03-04 | Survey Coordinates published on LemonSqueezy ($12 USD, license keys ON, activation limit 2, lifetime); checkout URL live in survey-coordinates/index.html; Revit 2024 dropped — 2025/2026 only; ImprovMX email forwarding active |
 
 ## 11. Pending Owner Action Items
 
 | Priority | Item | Notes |
 |----------|------|-------|
-| 🔴 High | Create Survey Coordinates product on LemonSqueezy | Then update checkout URL in survey-coordinates/index.html |
+| ✅ Done | Create Survey Coordinates product on LemonSqueezy | Published — checkout URL live in survey-coordinates/index.html |
 | 🔴 High | Crop logo.png / favicon.png — remove excess transparent padding | Images at C:\victus\Website\images\ — crop tight to artwork |
 | 🟡 Medium | Edit demo videos — replace Autodesk App Store URL with archbim.co.in | YouTube videos exist; audio needs re-recording or editing |
 | 🟡 Medium | Create Core Layout product page (core-layout/index.html) | Embed YouTube demo video; mirror survey-coordinates page structure |
