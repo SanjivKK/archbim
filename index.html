@@ -189,10 +189,15 @@
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
     .footer-brand { display: flex; align-items: center; gap: 10px; }
     .footer-brand img { height: 36px; width: auto; display: block; }
+    .footer-brand-text { display: flex; flex-direction: column; gap: 3px; }
     .footer-brand-name {
       font-size: 1rem; font-weight: 800; letter-spacing: -.02em; color: var(--text-2);
     }
     .footer-brand-name span { color: var(--accent); }
+    .footer-tagline {
+      font-size: .65rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-3);
+    }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { font-size: .85rem; color: var(--text-3); transition: color .2s; }
     .footer-links a:hover { color: var(--text-2); }
@@ -419,7 +424,10 @@
       <div class="footer-inner">
         <a href="/" class="footer-brand">
           <img src="/images/favicon.png" alt="ArchBIM icon" />
-          <span class="footer-brand-name">Arch<span>BIM</span></span>
+          <div class="footer-brand-text">
+            <span class="footer-brand-name">Arch<span>BIM</span></span>
+            <span class="footer-tagline">BIM &nbsp;·&nbsp; Automation &nbsp;·&nbsp; Intelligence</span>
+          </div>
         </a>
         <div class="footer-links">
           <a href="mailto:support@archbim.co.in">support@archbim.co.in</a>
