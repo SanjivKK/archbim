@@ -276,16 +276,35 @@
     .footer-links a:hover { color: var(--text-2); }
     .footer-copy { font-size: .82rem; color: var(--text-3); }
 
+    /* ── Screenshots ──────────────────────────────────────────── */
+    .screenshots-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 52px;
+    }
+    .screenshot-figure {
+      margin: 0; display: flex; flex-direction: column; gap: 14px;
+    }
+    .screenshot-figure img {
+      width: 100%; border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 40px rgba(0,0,0,.6);
+      display: block;
+    }
+    .screenshot-figure figcaption {
+      font-size: .85rem; color: var(--text-2); line-height: 1.5; text-align: center;
+    }
+
     /* ── Responsive ───────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .hero-inner    { grid-template-columns: 1fr; }
-      .hero-visual   { display: none; }
-      .features-grid { grid-template-columns: 1fr 1fr; }
-      .steps         { grid-template-columns: 1fr 1fr; }
-      .step-connector{ display: none; }
-      .req-grid      { grid-template-columns: 1fr; }
-      .stats-inner   { grid-template-columns: 1fr; }
-      .stat + .stat  { border-left: none; border-top: 1px solid var(--border); }
+      .hero-inner       { grid-template-columns: 1fr; }
+      .hero-visual      { display: none; }
+      .features-grid    { grid-template-columns: 1fr 1fr; }
+      .steps            { grid-template-columns: 1fr 1fr; }
+      .step-connector   { display: none; }
+      .req-grid         { grid-template-columns: 1fr; }
+      .stats-inner      { grid-template-columns: 1fr; }
+      .stat + .stat     { border-left: none; border-top: 1px solid var(--border); }
+      .screenshots-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
     }
     @media (max-width: 700px) {
       .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
@@ -314,7 +333,8 @@
           <a href="#requirements">Requirements</a>
           <a href="#pricing">Pricing</a>
         </div>
-        <a href="#pricing" class="btn-buy-nav">Try Free →</a>
+        <a href="https://archbim.lemonsqueezy.com/checkout/buy/c1aa68f7-155a-41fc-89ed-d1fe5c1e8f0b"
+           class="btn-buy-nav">Buy — $18 →</a>
       </div>
     </div>
   </nav>
@@ -502,6 +522,48 @@
     </div>
   </section>
 
+  <!-- ── Screenshots ───────────────────────────────────────── -->
+  <section class="section-sm" id="screenshots">
+    <div class="container">
+      <div class="section-label">Screenshots</div>
+      <h2 class="section-title">See it in action</h2>
+      <p class="section-sub">
+        Guided dialogs walk you through every step — nothing is applied until
+        you review and confirm the mappings.
+      </p>
+      <div class="screenshots-grid">
+
+        <figure class="screenshot-figure">
+          <img src="/sheet-transfer/images/source-selection.png"
+               alt="Source Selection dialog — pick the source project" />
+          <figcaption>
+            Pick the source project from all open Revit documents.
+            The active (target) document is shown in blue and cannot be selected.
+          </figcaption>
+        </figure>
+
+        <figure class="screenshot-figure">
+          <img src="/sheet-transfer/images/level-mapping.png"
+               alt="Level Mapping dialog — remap level tokens with live preview" />
+          <figcaption>
+            Remap level tokens before transfer — a live preview shows the
+            resulting sheet numbers and names. Sheets can be skipped per level.
+          </figcaption>
+        </figure>
+
+        <figure class="screenshot-figure">
+          <img src="/sheet-transfer/images/titleblock-mapping.png"
+               alt="Titleblock Mapping dialog — resolve missing titleblock families" />
+          <figcaption>
+            Missing titleblocks? Map each source family to any loaded family
+            in the target project — or skip those sheets and load the .rfa later.
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── Requirements ───────────────────────────────────────── -->
   <section class="section" id="requirements">
     <div class="container">
@@ -565,7 +627,6 @@
         </div>
 
         <!-- Full license card -->
-        <!-- TODO: Replace checkout URL below with LemonSqueezy product URL once created -->
         <div class="price-card featured">
           <div>
             <div class="price-badge badge-license">
@@ -582,7 +643,7 @@
             <li>Free updates within the same Revit year</li>
             <li>Email support</li>
           </ul>
-          <a href="mailto:support@archbim.co.in?subject=Sheet%20Transfer%20License"
+          <a href="https://archbim.lemonsqueezy.com/checkout/buy/c1aa68f7-155a-41fc-89ed-d1fe5c1e8f0b"
              class="btn-checkout">
             Buy Now — $18
           </a>
