@@ -249,3 +249,53 @@ Follow the same pattern as **Core** (private source) → **core-site** (public d
 2. Move all source + CLAUDE.md there
 3. Keep `archbim` (public) as the deploy target only — push built output via CI/CD (GitHub Actions)
 4. Update this CLAUDE.md accordingly
+
+---
+
+## 13. Agentic AI Embedded in Revit (Future Trigger: 10–20 Add-ins)
+
+**Concept**
+
+Each ArchBIM add-in automates one focused Revit task. When the library reaches
+10–20 published tools, those commands become **tools** for an AI agent embedded
+directly inside Revit — a docked chat panel where an architect types a natural
+language instruction and the agent plans and executes a sequence of add-in calls
+to complete it.
+
+**Example commands the agent could handle**
+| Instruction | Agent action |
+|---|---|
+| "Copy all Level 3 sheets from the source project and update their survey coordinates" | SheetTransfer (level-filtered) → SurveyCoordinates (UpdateParameterValues) |
+| "Create a sheet for each level using the standard A1 titleblock" | Future SheetCreate tool |
+| "Export this model to Navisworks and update the coordination model" | NWC add-in |
+| "Tag all site elements with northings and eastings then export a schedule" | SurveyCoordinates → future ScheduleExport tool |
+
+**Architecture (when the time comes)**
+```
+Revit ribbon button → WPF Chat Panel
+      ↕
+  Claude API (tool_use) — server-side or local key
+      ↓ selects tools
+  ArchBIM Tool Registry (JSON manifests per add-in)
+      ↓ dispatches
+  Each add-in's IAgentTool.Execute(JsonNode params) → Result
+```
+
+- Each add-in exposes a lightweight `IAgentTool` interface (name, description,
+  JSON schema for parameters, Execute method)
+- The agent add-in loads all installed ArchBIM tools at startup, builds the
+  Claude tool-use manifest dynamically
+- Claude selects tools, passes structured params, receives structured results,
+  and can chain multiple calls
+- The chat panel shows each step with its result so the user can follow along
+
+**Design principles to apply now (before the agent exists)**
+- Keep command inputs and outputs clean and parameterised
+- Summary dialogs already return structured counts (created / skipped / errors) —
+  these become agent-readable results
+- Avoid hard-coded UI-only flows; the core logic should be callable without
+  showing dialogs (future: headless mode for agent calls)
+
+**Trigger:** Start building the agent add-in when 10–20 ArchBIM tools are
+published and stable. The groundwork (clean commands, structured summaries)
+is being laid right now.
