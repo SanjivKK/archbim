@@ -1,0 +1,6 @@
+# Claude Code project memory — keep local only, never push to public repo
+CLAUDE.md
+
+# OS noise
+.DS_Store
+Thumbs.db
