@@ -8,6 +8,14 @@
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <style>
     /* ── Reset & base ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -289,7 +297,7 @@
           <a href="#how-it-works">How it Works</a>
           <a href="#demo">Demo</a>
         </div>
-        <a href="https://sanjivkk.github.io/core-site/" target="_blank" rel="noopener" class="btn-open-nav">Open App →</a>
+        <a href="https://sanjivkk.github.io/core-site/" target="_blank" rel="noopener" class="btn-open-nav" onclick="gtag('event','app_open',{product:'Core Layout',location:'nav'})">Open App →</a>
       </div>
     </div>
   </nav>
@@ -313,7 +321,7 @@
             browser. No Revit. No install. No account.
           </p>
           <div class="hero-cta">
-            <a href="https://sanjivkk.github.io/core-site/" target="_blank" rel="noopener" class="btn-primary">
+            <a href="https://sanjivkk.github.io/core-site/" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','app_open',{product:'Core Layout',location:'hero'})">
               Open App — Free &nbsp;→
             </a>
             <a href="#how-it-works" class="btn-secondary">
@@ -585,7 +593,7 @@
         No account, no install, no credit card. Open it in your browser and
         start generating compliant core packages in seconds.
       </p>
-      <a href="https://sanjivkk.github.io/core-site/" target="_blank" rel="noopener" class="btn-cta-large">
+      <a href="https://sanjivkk.github.io/core-site/" target="_blank" rel="noopener" class="btn-cta-large" onclick="gtag('event','app_open',{product:'Core Layout',location:'cta'})">
         Open Core Layout &nbsp;→
       </a>
       <p class="cta-note">Free forever · Works in any modern browser</p>
