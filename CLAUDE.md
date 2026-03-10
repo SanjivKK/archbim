@@ -465,7 +465,7 @@ genuinely can't be cut; accepted by owner as is).
 | 3 | Structural clash detection | Not started |
 | 4 | Summary report (placed / skipped / errors per level) | Not started |
 | 5 | TagFormat — structured tags, level codes, system codes | Not started |
-| 6 | Installer (Inno Setup), website product page | Not started |
+| 6 | Installer (Inno Setup), website product page, LemonSqueezy license activation | ✅ Built 2026-03-10 |
 
 ### Phase 2 — Floor Penetrations Strategy
 
@@ -543,6 +543,7 @@ Then in GitHub repo Settings → Pages:
 | 2026-03-10 | Master CLAUDE.md moved to C:\Users\kapil\.claude\CLAUDE.md (global Claude Code location, inaccessible to Codex). Stub left at C:\victus\CLAUDE.md. Backup maintained at C:\victus\Website\CLAUDE.md (in GitHub repo). Adding log file to SleeveCuts.cs for displacement diagnosis. |
 | 2026-03-10 | WallSleeves Phase 1.5 RESOLVED. Root cause of vertical displacement: wall-based family origin is at void bottom (Ref. Level), not void centre. Fix: ptInsert.Z = pt.Z + (tFt - bFt)/2 - finalH/2. Confirmed working — sleeve now centred on duct. 86 placed, cuts working, 3 Soffit-Beam Wrap dialogs (accepted). |
 | 2026-03-10 | WallSleeves launch: updated Wall_Sleeve.rfa in Resources folder; created WallSleeves_Setup.iss (Inno Setup — installs DLL+addin+RFA to Addins\2025\ and \2026\); product page updated ($22→$48, mark format pills in Smart Mark card); homepage card updated ($22→$48); all pushed to GitHub. |
+| 2026-03-10 | WallSleeves fully live: LicenseManager.cs + LicenseKeyWindow (LS API key activation) built and deployed; WallSleeves product published on LemonSqueezy ($48, checkout URL live in product page); WallSleeves_Setup.exe compiled and uploaded to GitHub Release v1.0.0; download button on product page confirmed working. |
 
 ## 11. Pending Owner Action Items
 
@@ -568,8 +569,10 @@ Then in GitHub repo Settings → Pages:
 | ✅ Done | Save screenshots to Website\wall-sleeves\images\ | 5 PNGs committed: settings-dialog, progress-window, summary-dialog, link-selection, readme.txt |
 | ✅ Done | Create WallSleeves installer script | WallSleeves_Setup.iss created in WallSleeves\Installer\ |
 | ✅ Done | Push wall-sleeves product page + homepage card to GitHub | wall-sleeves/index.html live at archbim.co.in/wall-sleeves/; price $48 everywhere |
-| 🔴 High | Create WallSleeves product on LemonSqueezy ($48) | Then update checkout URL in wall-sleeves/index.html (currently #pricing placeholder) |
-| 🔴 High | Compile WallSleeves_Setup.exe with Inno Setup 6 | Install Inno Setup 6 → right-click WallSleeves_Setup.iss → Compile → upload EXE to GitHub Release |
+| ✅ Done | Create WallSleeves product on LemonSqueezy ($48) | Published — checkout URL: archbim.lemonsqueezy.com/checkout/buy/6048dae4-795a-4eab-ab24-655ef7a9cd08 |
+| ✅ Done | Wire checkout URL into wall-sleeves/index.html | Both nav + Buy Now buttons live; pushed to GitHub |
+| ✅ Done | LemonSqueezy license key activation in add-in | LicenseManager.cs + LicenseKeyWindow.xaml/.cs; Class1.cs + SleeveCuts.cs updated; builds clean |
+| ✅ Done | Compile WallSleeves_Setup.exe + upload to GitHub Release | Compiled with Inno Setup 6; uploaded to SanjivKK/archbim v1.0.0; download URL confirmed working |
 | 🔵 Future | Split website into private source repo + public deploy repo | See Section 12 — do when a build step or secrets are introduced |
 
 ---
