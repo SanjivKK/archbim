@@ -8,6 +8,14 @@
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <style>
     /* ── Reset & base ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -334,7 +342,7 @@
           <a href="#pricing">Pricing</a>
         </div>
         <a href="https://archbim.lemonsqueezy.com/checkout/buy/c1aa68f7-155a-41fc-89ed-d1fe5c1e8f0b"
-           class="btn-buy-nav">Buy — $18 →</a>
+           class="btn-buy-nav" onclick="gtag('event','begin_checkout',{product:'Sheet Transfer',value:18,currency:'USD'})">Buy — $18 →</a>
       </div>
     </div>
   </nav>
@@ -618,7 +626,8 @@
             <li>No account, no email required</li>
           </ul>
           <a href="https://github.com/sanjivkk/archbim/releases/latest/download/SheetTransfer_Setup.exe"
-             class="btn-trial">
+             class="btn-trial"
+             onclick="gtag('event','trial_download',{product:'Sheet Transfer'})">
             Download Free Trial →
           </a>
           <div class="price-note">
@@ -644,7 +653,8 @@
             <li>Email support</li>
           </ul>
           <a href="https://archbim.lemonsqueezy.com/checkout/buy/c1aa68f7-155a-41fc-89ed-d1fe5c1e8f0b"
-             class="btn-checkout">
+             class="btn-checkout"
+             onclick="gtag('event','begin_checkout',{product:'Sheet Transfer',value:18,currency:'USD'})">
             Buy Now — $18
           </a>
           <div class="price-note">

@@ -7,6 +7,14 @@
   <meta name="description" content="Automatically capture and update real-world Northing and Easting coordinates on your Revit Site and Planting elements. Schedule, tag, and relocate with precision." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <style>
     /* ── Reset & base ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -611,7 +619,8 @@
           </ul>
           <!-- Replace YOUR_GITHUB_USERNAME with your actual GitHub username before going live -->
           <a href="https://github.com/sanjivkk/archbim/releases/latest/download/SurveyCoordinates_Setup.exe"
-             class="btn-trial">
+             class="btn-trial"
+             onclick="gtag('event','trial_download',{product:'Survey Coordinates'})">
             Download Free Trial →
           </a>
           <div class="price-note">
@@ -637,7 +646,8 @@
             <li>Email support</li>
           </ul>
           <a href="https://archbim.lemonsqueezy.com/checkout/buy/12e5af92-d4bf-4e7e-8365-9042df94b487"
-             class="btn-checkout">
+             class="btn-checkout"
+             onclick="gtag('event','begin_checkout',{product:'Survey Coordinates',value:12,currency:'USD'})">
             Buy Now — $12
           </a>
           <div class="price-note">

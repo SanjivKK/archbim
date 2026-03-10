@@ -8,6 +8,14 @@
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <style>
     /* ── Reset & base ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -334,7 +342,7 @@
           <a href="#screenshots">Screenshots</a>
           <a href="#pricing">Pricing</a>
         </div>
-        <a href="https://archbim.lemonsqueezy.com/checkout/buy/6048dae4-795a-4eab-ab24-655ef7a9cd08" class="btn-buy-nav">Buy — $48 →</a>
+        <a href="https://archbim.lemonsqueezy.com/checkout/buy/6048dae4-795a-4eab-ab24-655ef7a9cd08" class="btn-buy-nav" onclick="gtag('event','begin_checkout',{product:'Wall Sleeves',value:48,currency:'USD'})">Buy — $48 →</a>
       </div>
     </div>
   </nav>
@@ -657,7 +665,8 @@
           </ul>
           <!-- TODO: update download URL once installer is built -->
           <a href="https://github.com/sanjivkk/archbim/releases/latest/download/WallSleeves_Setup.exe"
-             class="btn-trial">
+             class="btn-trial"
+             onclick="gtag('event','trial_download',{product:'Wall Sleeves'})">
             Download Free Trial →
           </a>
           <div class="price-note">
@@ -682,7 +691,7 @@
             <li>Free updates within the same Revit year</li>
             <li>Email support</li>
           </ul>
-          <a href="https://archbim.lemonsqueezy.com/checkout/buy/6048dae4-795a-4eab-ab24-655ef7a9cd08" class="btn-checkout">
+          <a href="https://archbim.lemonsqueezy.com/checkout/buy/6048dae4-795a-4eab-ab24-655ef7a9cd08" class="btn-checkout" onclick="gtag('event','begin_checkout',{product:'Wall Sleeves',value:48,currency:'USD'})">
             Buy Now — $48
           </a>
           <div class="price-note">
