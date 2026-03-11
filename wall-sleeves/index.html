@@ -234,6 +234,18 @@
     .req-list li { font-size: .92rem; color: var(--text-1); padding: 5px 0; display: flex; align-items: flex-start; gap: 10px; }
     .req-list li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 
+    /* ── Video ────────────────────────────────────────────────── */
+    .video-wrap {
+      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+      border-radius: 16px; border: 1px solid var(--border);
+      box-shadow: 0 24px 80px rgba(0,0,0,.5);
+      margin-top: 48px;
+    }
+    .video-wrap iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border: none; border-radius: 16px;
+    }
+
     /* ── Pricing ──────────────────────────────────────────────── */
     .pricing { background: var(--bg-1); }
     .pricing-intro { font-size: .95rem; color: var(--text-2); margin-top: 12px; }
@@ -339,6 +351,7 @@
         <div class="nav-links">
           <a href="#features">Features</a>
           <a href="#how-it-works">How it Works</a>
+          <a href="#demo">Demo</a>
           <a href="#screenshots">Screenshots</a>
           <a href="#pricing">Pricing</a>
         </div>
@@ -632,6 +645,22 @@
             <li>Wall_Sleeve.rfa bundled with the add-in — loads automatically on first run</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Video demo ─────────────────────────────────────────── -->
+  <section class="section-sm" id="demo">
+    <div class="container">
+      <div class="section-label">See it in action</div>
+      <h2 class="section-title">Demo video</h2>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/W6MgKan1Wuo?rel=0&modestbranding=1"
+          title="Wall Sleeves for Revit — demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>
