@@ -256,6 +256,27 @@
     }
     .req-list li::before { content: "✓"; color: var(--green); font-weight: 700; }
 
+    /* ── Screenshots ──────────────────────────────────────────── */
+    .screenshots-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px; margin-top: 52px;
+    }
+    .screenshot-figure {
+      margin: 0; display: flex; flex-direction: column; gap: 14px;
+    }
+    .screenshot-figure img {
+      width: 100%; border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 40px rgba(0,0,0,.6);
+      display: block;
+    }
+    .screenshot-figure figcaption {
+      font-size: .85rem; color: var(--text-2); line-height: 1.5; text-align: center;
+    }
+    @media (max-width: 720px) {
+      .screenshots-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+    }
+
     /* ── Video ────────────────────────────────────────────────── */
     .video-wrap {
       position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
@@ -598,6 +619,56 @@
             <li>PHE / Planting families assigned to correct Revit categories</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Screenshots ───────────────────────────────────────── -->
+  <section class="section-sm" id="screenshots">
+    <div class="container">
+      <div class="section-label">Screenshots</div>
+      <h2 class="section-title">See it in action</h2>
+      <p class="section-sub">
+        Two focused commands — one to capture coordinates, one to move elements to match.
+      </p>
+      <div class="screenshots-grid">
+
+        <figure class="screenshot-figure">
+          <img src="/survey-coordinates/images/ribbon-update-values.png"
+               alt="Northings and Eastings ribbon — Update Parameter Values" />
+          <figcaption>
+            The <strong>Update Parameter Values</strong> command reads each element's
+            location and writes its real-world Northing and Easting to the shared parameters.
+          </figcaption>
+        </figure>
+
+        <figure class="screenshot-figure">
+          <img src="/survey-coordinates/images/ribbon-update-locations.png"
+               alt="Northings and Eastings ribbon — Update Element Locations" />
+          <figcaption>
+            The <strong>Update Element Locations</strong> command moves elements to the
+            coordinates stored in their Northing and Easting parameters.
+          </figcaption>
+        </figure>
+
+        <figure class="screenshot-figure">
+          <img src="/survey-coordinates/images/category-check-dialog.png"
+               alt="Category Check preflight dialog" />
+          <figcaption>
+            A preflight dialog confirms categories and shared parameters are in place
+            before any changes are made.
+          </figcaption>
+        </figure>
+
+        <figure class="screenshot-figure">
+          <img src="/survey-coordinates/images/update-locations-dialog.png"
+               alt="Update Locations confirmation dialog" />
+          <figcaption>
+            The Update Locations command warns about family origin offsets — so nothing
+            moves without the user being informed first.
+          </figcaption>
+        </figure>
+
       </div>
     </div>
   </section>
