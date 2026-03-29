@@ -191,6 +191,23 @@
     .step p   { font-size: .9rem; color: var(--text-2); line-height: 1.6; }
     .step-connector { position: absolute; top: 20px; right: -14px; color: var(--border); font-size: 1.2rem; }
 
+    /* Screenshots */
+    .screenshots-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 48px;
+    }
+    .screenshot-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: border-color .2s, transform .2s;
+    }
+    .screenshot-card:hover { border-color: rgba(59,130,246,.4); transform: translateY(-3px); }
+    .screenshot-card img { width: 100%; display: block; }
+    .screenshot-card .caption {
+      padding: 14px 16px; font-size: .85rem; color: var(--text-2); text-align: center;
+    }
+    @media (max-width: 900px) { .screenshots-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; } }
+
     /* Requirements */
     .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
     .req-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; }
@@ -465,6 +482,28 @@
           <div class="step-num">03</div>
           <h3>Done</h3>
           <p>The browser organisation is copied, parameters are created, templates are transferred, and seed views populate every folder. A summary shows what was created.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="section" id="screenshots">
+    <div class="container">
+      <div class="section-label">In Action</div>
+      <h2 class="section-title">See it work</h2>
+      <div class="screenshots-grid">
+        <div class="screenshot-card">
+          <img src="/snips/browserClone/Ribbon.png" alt="Browser Clone ribbon button" />
+          <div class="caption">One button in the ribbon — hover for details</div>
+        </div>
+        <div class="screenshot-card">
+          <img src="/snips/browserClone/sourcePicker.png" alt="Source project picker" />
+          <div class="caption">Pick the source project to clone from</div>
+        </div>
+        <div class="screenshot-card">
+          <img src="/snips/browserClone/summary.png" alt="Clone summary" />
+          <div class="caption">Clear summary of what was created</div>
         </div>
       </div>
     </div>
