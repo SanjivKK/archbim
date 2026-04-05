@@ -158,6 +158,18 @@
     }
     @media (max-width:700px) { .pricing-grid { grid-template-columns:1fr; max-width:480px; } }
     @media (max-width:600px) { .features-grid, .tools-grid { grid-template-columns:1fr; } .steps { grid-template-columns:1fr; } .nav-links { display:none; } .price-card { padding:28px 24px; } }
+    /* Demo playlist */
+    .demo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px; max-width:720px; margin:0 auto; }
+    .demo-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:border-color .25s,transform .25s; display:block; }
+    .demo-card:hover { border-color:var(--indigo); transform:translateY(-2px); }
+    .demo-thumb { position:relative; aspect-ratio:16/9; overflow:hidden; background:#000; }
+    .demo-thumb img { width:100%; height:100%; object-fit:cover; opacity:.85; transition:opacity .25s; }
+    .demo-card:hover .demo-thumb img { opacity:1; }
+    .demo-play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#fff; opacity:.7; transition:opacity .2s; text-shadow:0 2px 12px rgba(0,0,0,.6); }
+    .demo-card:hover .demo-play { opacity:1; }
+    .demo-info { padding:16px 18px; }
+    .demo-info h3 { font-size:.92rem; font-weight:700; margin-bottom:4px; }
+    .demo-info p { font-size:.8rem; color:var(--text-3); }
   </style>
 </head>
 <body>
@@ -319,6 +331,42 @@
         <div class="step"><div class="step-num">02</div><h3>Activate</h3><p>Enter your license key on first launch. The Assistant panel appears in your sidebar.</p></div>
         <div class="step"><div class="step-num">03</div><h3>Work normally</h3><p>The Assistant watches your context — view type, selection, linked models, model state.</p></div>
         <div class="step"><div class="step-num">04</div><h3>Click to run</h3><p>When a suggestion appears, click the play button. The tool runs with smart defaults.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Videos -->
+  <section class="section" id="demos">
+    <div class="container">
+      <div class="section-label">See it in action</div>
+      <h2 class="section-title">Demo playlist</h2>
+      <p style="color:var(--text-2);max-width:600px;margin:0 auto 40px;text-align:center;font-size:.95rem;">
+        Watch the Assistant respond to your Revit context in real time. More episodes coming as new tools are added.
+      </p>
+      <div class="demo-grid">
+        <a class="demo-card" href="https://youtu.be/1k2R7i_mHLM" target="_blank" rel="noopener"
+           onclick="gtag('event','demo_play',{video:'assistant-part1'})">
+          <div class="demo-thumb">
+            <img src="https://img.youtube.com/vi/1k2R7i_mHLM/hqdefault.jpg" alt="Assistant Demo Part 1" loading="lazy" />
+            <div class="demo-play">&#9654;</div>
+          </div>
+          <div class="demo-info">
+            <h3>Part 1 — Contextual Suggestions</h3>
+            <p>Workflow modes, auto-detection, one-click tools</p>
+          </div>
+        </a>
+        <!-- Future episodes — uncomment as videos are recorded
+        <a class="demo-card" href="https://youtu.be/XXXXX" target="_blank" rel="noopener">
+          <div class="demo-thumb">
+            <img src="https://img.youtube.com/vi/XXXXX/hqdefault.jpg" alt="" loading="lazy" />
+            <div class="demo-play">&#9654;</div>
+          </div>
+          <div class="demo-info">
+            <h3>Part 2 — Model Health</h3>
+            <p>CAD imports, empty worksets, shared coordinates</p>
+          </div>
+        </a>
+        -->
       </div>
     </div>
   </section>
