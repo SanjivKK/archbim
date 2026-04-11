@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BimClash — Revit Clash Detection + Web Dashboard — ArchBIM</title>
-  <meta name="description" content="Model-native clash detection inside Revit with an interactive 3D web dashboard. No Navisworks. No IFC export. Detect, review, and fix clashes in the same session." />
+  <title>ClashView — Revit Clash Detection + 3D Web Dashboard — ArchBIM</title>
+  <meta name="description" content="ClashView is the clash detection engine built into ArchBIM Assistant. Solid-solid detection inside Revit, interactive 3D dashboard in the browser, saved clashes round-trip back to Revit as per-clash section views. No Navisworks. Included with Assistant." />
   <link rel="icon" type="image/png" href="/images/favicon-square.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -197,7 +197,7 @@
           <a href="#how-it-works">How it Works</a>
           <a href="#pricing">Pricing</a>
         </div>
-        <a href="https://clashes.archbim.co.in" class="btn-try-nav" onclick="gtag('event','app_open',{app_name:'bimclash'})">Try BimClash →</a>
+        <a href="/assistant/" class="btn-try-nav" onclick="gtag('event','cta_click',{target:'assistant',from:'clashview'})">Get Assistant →</a>
       </div>
     </div>
   </nav>
@@ -207,18 +207,19 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-text">
-          <div class="hero-badge"><span>💥</span> Revit + Web App</div>
+          <div class="hero-badge"><span>💥</span> Included with ArchBIM Assistant</div>
           <h1>Clash detection<br /><span class="hl">without Navisworks.</span></h1>
           <p>
-            BimClash runs inside Revit — detects clashes between host and linked models,
-            exports results, and opens an interactive 3D dashboard in your browser.
-            No round-trips. No IFC export. No extra licenses.
+            ClashView runs inside Revit — detects clashes between host and linked models
+            with solid-solid accuracy, opens an interactive 3D dashboard in your browser,
+            and lets you save a shortlist that becomes per-clash 3D views back in Revit.
+            Included with ArchBIM Assistant — no separate licence.
           </p>
           <div class="hero-cta">
-            <a href="#pricing" class="btn-primary">Get Started &nbsp;→</a>
+            <a href="/assistant/" class="btn-primary">Get Assistant &nbsp;→</a>
             <a href="#how-it-works" class="btn-secondary">See how it works ↓</a>
           </div>
-          <div class="hero-note">🔒 &nbsp;Your data never leaves your machine (local mode)</div>
+          <div class="hero-note">🔒 &nbsp;Your data stays local by default — cloud sharing is opt-in</div>
         </div>
 
         <div class="hero-visual">
@@ -226,7 +227,7 @@
             <div class="visual-dot" style="background:#ef4444"></div>
             <div class="visual-dot" style="background:#f59e0b"></div>
             <div class="visual-dot" style="background:#22c55e"></div>
-            <span style="margin-left:8px;font-size:.72rem;color:var(--text-3)">BimClash Dashboard</span>
+            <span style="margin-left:8px;font-size:.72rem;color:var(--text-3)">ClashView Dashboard</span>
           </div>
           <div class="visual-body">
             <div class="visual-heading">Clash Summary</div>
@@ -280,8 +281,9 @@
       <div class="section-label">Features</div>
       <h2 class="section-title">Detect, visualise, resolve.</h2>
       <p class="section-sub">
-        BimClash combines Revit-native clash detection with a browser-based 3D dashboard
-        that makes clash review accessible to anyone on the team.
+        ClashView combines Revit-native clash detection with a browser-based 3D dashboard
+        that makes clash review accessible to anyone on the team, then round-trips a
+        saved shortlist back to Revit as per-clash section-box views.
       </p>
       <div class="features-grid">
         <div class="feature-card">
@@ -321,11 +323,11 @@
   <!-- Comparison -->
   <section class="section comparison" id="comparison">
     <div class="container">
-      <div class="section-label">Why BimClash</div>
+      <div class="section-label">Why ClashView</div>
       <h2 class="section-title">How we compare.</h2>
       <p class="section-sub">
-        Navisworks, Solibri, and ACC are powerful — and expensive. BimClash gives you
-        what matters most at a fraction of the cost.
+        Navisworks, Solibri, and ACC are powerful — and expensive. ClashView gives you
+        what matters most, inside Revit, bundled with the rest of the ArchBIM Assistant.
       </p>
       <div class="comp-grid">
         <div class="comp-card">
@@ -362,13 +364,13 @@
           </ul>
         </div>
         <div class="comp-card ours">
-          <h3>BimClash</h3>
-          <p class="comp-price"><span class="hl">Free</span></p>
+          <h3>ClashView</h3>
+          <p class="comp-price"><span class="hl">Included with Assistant</span></p>
           <ul class="comp-list">
             <li><span class="yes">✓</span> Inside Revit (native)</li>
             <li><span class="yes">✓</span> Solid-solid detection</li>
             <li><span class="yes">✓</span> Interactive 3D dashboard</li>
-            <li><span class="partial">~</span> BCF planned</li>
+            <li><span class="yes">✓</span> Saved clashes → Revit views</li>
             <li><span class="yes">✓</span> Works offline</li>
           </ul>
         </div>
@@ -382,10 +384,10 @@
       <div class="section-label">How it works</div>
       <h2 class="section-title">Four steps. No Navisworks.</h2>
       <div class="steps">
-        <div class="step"><div class="step-num">01</div><h3>Configure</h3><p>Open the clash setup in Revit. Pick host vs linked model categories for Set 1 and Set 2.</p></div>
-        <div class="step"><div class="step-num">02</div><h3>Detect</h3><p>BimClash runs solid-solid intersection tests across all selected elements. Progress bar shows status.</p></div>
-        <div class="step"><div class="step-num">03</div><h3>Export</h3><p>Results are saved as a lightweight JSON file. Your data stays on your machine.</p></div>
-        <div class="step"><div class="step-num">04</div><h3>Explore</h3><p>Drop the file onto clashes.archbim.co.in. Interactive 3D viewer, charts, and sortable clash list load instantly.</p></div>
+        <div class="step"><div class="step-num">01</div><h3>Configure</h3><p>Open the clash setup from the Assistant panel. Pick host vs linked model categories for Set 1 and Set 2. Fittings auto-include with their parent runs.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Detect</h3><p>ClashView runs solid-solid intersection tests across all selected elements. Optional view-scope filter narrows the test to a section box.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Review</h3><p>Results open in the 3D dashboard — opaque building with clashes as red dots. Click a clash, the full MEP run lights up, rest fades to context.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Round-trip</h3><p>Star the clashes you want to fix, export saved.json, and the Assistant creates one 3D view per clash with a tight section box — ready to resolve in Revit.</p></div>
       </div>
     </div>
   </section>
@@ -420,42 +422,31 @@
   <section class="section pricing" id="pricing">
     <div class="container">
       <div class="section-label">Pricing</div>
-      <h2 class="section-title">Free to start. Pro when you're ready.</h2>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <span class="price-badge badge-free">Free</span>
-          <h3>BimClash</h3>
-          <p class="tagline">Detect + visualise clashes</p>
-          <div class="price-free">$0</div>
-          <p class="price-period">forever free</p>
-          <ul class="price-features">
-            <li>Revit clash detection (Set 1 / Set 2)</li>
-            <li>JSON export</li>
-            <li>3D web viewer with clash markers</li>
-            <li>Analytics dashboard (4 charts)</li>
-            <li>Sortable, filterable clash list</li>
-            <li>Works fully offline</li>
-          </ul>
-          <a href="https://clashes.archbim.co.in" class="btn-download" onclick="gtag('event','app_open',{app_name:'bimclash'})">
-            Open BimClash →
-          </a>
-          <div class="price-note">🔒 &nbsp;Your data never leaves your browser</div>
-        </div>
+      <h2 class="section-title">Included with ArchBIM Assistant.</h2>
+      <p class="section-sub" style="margin-bottom:48px">
+        ClashView isn't sold separately. It's one of the tools bundled inside the
+        ArchBIM Assistant subscription alongside Coordination Views, Wall Sleeves,
+        NWC Export, and everything else. One licence, one install, every tool.
+      </p>
+      <div style="display:grid;grid-template-columns:1fr;max-width:520px;margin:0 auto;">
         <div class="price-card featured">
-          <span class="price-badge badge-pro">Coming Soon</span>
-          <h3>BimClash Pro</h3>
-          <p class="tagline">Classify + manage + share</p>
-          <div class="price-amount" style="color:var(--text-3)">TBA</div>
-          <p class="price-period">pricing announced soon</p>
+          <span class="price-badge badge-pro">Bundled</span>
+          <h3>ArchBIM Assistant</h3>
+          <p class="tagline">Every ArchBIM tool, one subscription</p>
+          <div class="price-amount">$15</div>
+          <p class="price-period">per month · per machine</p>
           <ul class="price-features">
-            <li>Everything in Free</li>
-            <li>Status editing (New / Active / Resolved)</li>
-            <li>Notes and assignee per clash</li>
-            <li>1-click cloud sharing (shareable URL)</li>
-            <li>CSV / BCF export</li>
-            <li>Trend tracking across versions</li>
+            <li>ClashView — solid-solid detection + 3D dashboard</li>
+            <li>Saved clashes → Revit section-box views round-trip</li>
+            <li>Coordination Views, NWC Export, Wall Sleeves</li>
+            <li>xlConnect (Object Styles, View Templates, Rooms, Params)</li>
+            <li>Roominess export + import, Browser Clone, Sheet Transfer</li>
+            <li>Auto-updates — new features ship straight to your machine</li>
           </ul>
-          <span class="btn-launch" style="opacity:.5;cursor:default;box-shadow:none">Coming Soon</span>
+          <a href="/assistant/" class="btn-launch" onclick="gtag('event','cta_click',{target:'assistant',from:'clashview_pricing'})">
+            Get ArchBIM Assistant →
+          </a>
+          <div class="price-note">🔒 &nbsp;Your data stays local by default — cloud sharing is opt-in</div>
         </div>
       </div>
     </div>
@@ -468,33 +459,33 @@
       <h2 class="section-title">Where we're headed.</h2>
       <div class="roadmap-grid">
         <div class="roadmap-card done">
-          <span class="roadmap-badge done">Done</span>
-          <h3>C1 — Revit Engine</h3>
-          <p>Solid-solid clash detection, Set 1/Set 2 picker, progress bar, JSON export with severity classification.</p>
+          <span class="roadmap-badge done">Shipped</span>
+          <h3>Engine + 3D Dashboard</h3>
+          <p>Solid-solid clash detection, Set 1/Set 2 picker with view scope, auto-include fittings, opaque building with clash spheres always on top, same-MEP-system run highlighting.</p>
         </div>
         <div class="roadmap-card done">
-          <span class="roadmap-badge done">Done</span>
-          <h3>C2 — Web Dashboard</h3>
-          <p>3D viewer (Three.js), clash spheres + element bboxes, analytics charts (Recharts), sortable list, level planes.</p>
+          <span class="roadmap-badge done">Shipped</span>
+          <h3>Cloud Sharing</h3>
+          <p>1-click export from Revit to browser, shareable URL, 7-day auto-delete, opt-in consent. Local fallback when a firewall blocks the upload.</p>
+        </div>
+        <div class="roadmap-card done">
+          <span class="roadmap-badge done">Shipped</span>
+          <h3>Saved Clashes → Revit Views</h3>
+          <p>Star the clashes that matter, export the shortlist, and the Assistant creates one 3D view per clash with a 1 m padded section box, ready to fix.</p>
         </div>
         <div class="roadmap-card next">
           <span class="roadmap-badge next">Next</span>
-          <h3>C2.5 — Cloud Sharing</h3>
-          <p>1-click export from Revit to browser. Shareable URL. 7-day auto-delete. Local fallback if offline.</p>
+          <h3>Status Management</h3>
+          <p>Status editing (New / Active / Resolved), notes, assignee, CSV export. Track resolution progress across the team.</p>
         </div>
         <div class="roadmap-card future">
           <span class="roadmap-badge future">Planned</span>
-          <h3>C3 — Status Management</h3>
-          <p>Status editing, notes, assignee, CSV export. Track resolution progress across the team.</p>
+          <h3>AI Classification</h3>
+          <p>Batch triage via Claude API — auto-classify severity by discipline pair and spatial context.</p>
         </div>
         <div class="roadmap-card future">
           <span class="roadmap-badge future">Planned</span>
-          <h3>C4 — AI Classification</h3>
-          <p>Claude API batch triage — auto-classify severity by discipline pair and spatial context.</p>
-        </div>
-        <div class="roadmap-card future">
-          <span class="roadmap-badge future">Planned</span>
-          <h3>C6 — BCF Export</h3>
+          <h3>BCF Export</h3>
           <p>Export clash results as BCF issues. Camera viewpoints, element references, and screenshots included.</p>
         </div>
       </div>
