@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArchBIM — BIM Tools for AEC Professionals</title>
-  <meta name="description" content="ArchBIM builds focused tools for AEC professionals — Revit add-ins, interactive BIM web apps, and automation tools for real projects." />
+  <title>ArchBIM — Your BIM talks to you</title>
+  <meta name="description" content="ArchBIM Assistant — a contextual workflow assistant for Revit. Watches your project state and queues the right tool from a panel of 14+ embedded utilities. Setup, design, coordination, documentation — all from one dockable panel." />
   <link rel="icon" type="image/png" href="/images/favicon-square.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <!-- Google Analytics 4 — replace G-EDREXHEZKN with your Measurement ID -->
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDREXHEZKN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,13 +25,19 @@
       --bg-2:    #141e35;
       --bg-card: #111827;
       --border:  #1e2d47;
-      --accent:  #3b82f6;
+      --accent:  #6366f1;     /* indigo — matches the Assistant identity */
       --accent2: #06b6d4;
       --text-1:  #f1f5f9;
       --text-2:  #94a3b8;
       --text-3:  #64748b;
       --green:   #22c55e;
       --radius:  14px;
+
+      /* phase accents — match assistant-page mode pills */
+      --phase-setup:  #818cf8;
+      --phase-design: #34d399;
+      --phase-coord:  #fbbf24;
+      --phase-doc:    #a78bfa;
     }
 
     html { scroll-behavior: smooth; }
@@ -53,53 +59,93 @@
       display: flex; align-items: center; justify-content: space-between;
       height: 64px;
     }
-    .brand {
-      display: flex; align-items: center; gap: 10px; text-decoration: none;
-    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .brand img { height: 36px; width: auto; display: block; }
     .brand-name {
       font-size: 1.4rem; font-weight: 800; letter-spacing: -.02em;
       color: var(--text-1);
     }
     .brand-name span { color: var(--accent); }
-    .nav-links { display: flex; gap: 28px; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
     .nav-links a { font-size: .9rem; color: var(--text-2); transition: color .2s; }
     .nav-links a:hover { color: var(--text-1); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent); color: #fff !important;
+      font-size: .82rem; font-weight: 700;
+      padding: 7px 14px; border-radius: 8px;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: #4f46e5; color: #fff !important; }
 
-    /* ── Hero ── */
+    /* ── Hero — Assistant-first ── */
     .hero {
-      padding: 110px 0 80px;
+      padding: 96px 0 80px;
       background:
-        radial-gradient(ellipse 70% 50% at 50% -5%,  rgba(59,130,246,.2), transparent),
-        radial-gradient(ellipse 50% 40% at 85% 60%,  rgba(6,182,212,.08), transparent),
+        radial-gradient(ellipse 80% 50% at 50% -8%, rgba(99,102,241,.20), transparent),
+        radial-gradient(ellipse 50% 40% at 85% 60%, rgba(6,182,212,.08),  transparent),
         var(--bg-0);
-      text-align: center;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.28);
-      color: #93c5fd; font-size: .75rem; font-weight: 700;
-      padding: 5px 14px; border-radius: 100px;
-      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 24px;
+      background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.30);
+      color: #a5b4fc; font-size: .73rem; font-weight: 700;
+      padding: 5px 12px; border-radius: 100px;
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 22px;
     }
     .hero h1 {
-      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-size: clamp(2.4rem, 4.4vw, 3.4rem);
       font-weight: 800; letter-spacing: -.03em; line-height: 1.1;
       margin-bottom: 20px;
     }
     .hero h1 span { color: var(--accent); }
-    .hero p {
-      font-size: 1.15rem; color: var(--text-2);
-      max-width: 520px; margin: 0 auto 40px; line-height: 1.7;
+    .hero-sub {
+      font-size: 1.05rem; color: var(--text-2);
+      max-width: 480px; margin-bottom: 32px; line-height: 1.7;
     }
-    .hero-scroll {
+    .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      color: var(--text-3); font-size: .85rem;
-      animation: bounce 2s infinite;
+      background: var(--accent); color: #fff;
+      font-weight: 700; font-size: .95rem;
+      padding: 13px 26px; border-radius: 10px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(99,102,241,.30);
     }
-    @keyframes bounce {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(6px); }
+    .btn-primary:hover { background: #4f46e5; transform: translateY(-1px); box-shadow: 0 8px 32px rgba(99,102,241,.40); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: transparent; color: var(--text-1);
+      font-weight: 600; font-size: .9rem;
+      padding: 12px 18px; border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: border-color .2s, color .2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-note {
+      margin-top: 18px; font-size: .8rem; color: var(--text-3);
+      display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    }
+    .hero-visual {
+      position: relative; aspect-ratio: 16/9;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,.5);
+      transition: transform .25s, border-color .25s;
+    }
+    .hero-visual:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .hero-visual img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: .9; transition: opacity .25s;
+    }
+    .hero-visual:hover img { opacity: 1; }
+    .hero-visual-play {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; color: #fff; text-shadow: 0 4px 24px rgba(0,0,0,.7);
+      pointer-events: none;
     }
 
     /* ── Section ── */
@@ -113,50 +159,193 @@
       font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px;
     }
     .section-sub {
-      font-size: 1rem; color: var(--text-2); max-width: 540px; line-height: 1.7;
+      font-size: 1rem; color: var(--text-2); max-width: 560px; line-height: 1.7;
     }
 
-    /* ── Add-in cards ── */
+    /* ── Workflow modes strip ── */
+    .modes {
+      background: var(--bg-1); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 64px 0;
+    }
+    .mode-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .mode-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px;
+    }
+    .mode-tag {
+      display: inline-block;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 100px;
+      margin-bottom: 12px; background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+    }
+    .mode-tag.setup  { color: var(--phase-setup);  border-color: rgba(129,140,248,.35); }
+    .mode-tag.design { color: var(--phase-design); border-color: rgba(52,211,153,.35);  }
+    .mode-tag.coord  { color: var(--phase-coord);  border-color: rgba(251,191,36,.35);  }
+    .mode-tag.doc    { color: var(--phase-doc);    border-color: rgba(167,139,250,.35); }
+    .mode-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .mode-card p  { font-size: .87rem; color: var(--text-2); line-height: 1.55; }
+
+    /* ── What's inside (tool chips by phase) ── */
+    .inside-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+      margin-top: 48px;
+    }
+    .inside-col h4 {
+      font-size: .82rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .inside-col.setup  h4 { color: var(--phase-setup);  }
+    .inside-col.design h4 { color: var(--phase-design); }
+    .inside-col.coord  h4 { color: var(--phase-coord);  }
+    .inside-col.doc    h4 { color: var(--phase-doc);    }
+    .tool-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 9px 12px;
+      font-size: .85rem; color: var(--text-2);
+      margin-bottom: 7px;
+      transition: border-color .2s, color .2s;
+    }
+    .tool-chip:hover { border-color: rgba(99,102,241,.35); color: var(--text-1); }
+    .tool-chip-icon { font-size: .9rem; line-height: 1; }
+    .tool-chip-pro {
+      margin-left: auto;
+      font-size: .58rem; font-weight: 700; letter-spacing: .05em;
+      padding: 1px 6px; border-radius: 100px;
+      background: rgba(99,102,241,.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,.3);
+    }
+    .inside-foot {
+      margin-top: 36px; text-align: center;
+      font-size: .85rem; color: var(--text-3);
+    }
+    .inside-foot strong { color: var(--text-2); font-weight: 600; }
+
+    /* ── Demo videos ── */
+    .demos {
+      background: var(--bg-1); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 40px auto 0; }
+    .demo-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: border-color .25s, transform .25s;
+    }
+    .demo-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .demo-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; background: #000; }
+    .demo-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: .85; transition: opacity .25s; }
+    .demo-card:hover .demo-thumb img { opacity: 1; }
+    .demo-play {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem; color: #fff; opacity: .75; transition: opacity .2s;
+      text-shadow: 0 2px 12px rgba(0,0,0,.6);
+    }
+    .demo-card:hover .demo-play { opacity: 1; }
+    .demo-info { padding: 18px 20px; }
+    .demo-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .demo-info p  { font-size: .82rem; color: var(--text-2); }
+
+    /* ── Pricing band ── */
+    .pricing-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px;
+      margin-top: 44px;
+    }
+    .price-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px; position: relative;
+    }
+    .price-card.primary {
+      border-color: rgba(99,102,241,.45);
+      box-shadow: 0 8px 40px rgba(99,102,241,.12);
+    }
+    .price-card.primary::before {
+      content: 'Recommended';
+      position: absolute; top: -12px; left: 32px;
+      background: var(--accent); color: #fff;
+      font-size: .68rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 12px; border-radius: 100px;
+    }
+    .price-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+    .price-amount {
+      font-size: 2.4rem; font-weight: 800; letter-spacing: -.02em;
+      color: var(--text-1); margin: 14px 0 6px;
+    }
+    .price-amount .per { font-size: 1rem; color: var(--text-3); font-weight: 500; }
+    .price-card .desc { font-size: .9rem; color: var(--text-2); margin-bottom: 22px; line-height: 1.6; }
+    .price-features { list-style: none; padding: 0; margin: 0 0 24px; }
+    .price-features li {
+      font-size: .88rem; color: var(--text-2); padding-left: 22px;
+      margin-bottom: 7px; position: relative; line-height: 1.55;
+    }
+    .price-features li::before {
+      content: '✓'; position: absolute; left: 0; top: 0;
+      color: var(--accent); font-weight: 700;
+    }
+    .price-cta {
+      display: inline-flex; align-items: center; gap: 6px; width: 100%; justify-content: center;
+      background: var(--accent); color: #fff;
+      font-weight: 700; font-size: .92rem;
+      padding: 12px 22px; border-radius: 10px;
+      transition: background .2s;
+    }
+    .price-cta:hover { background: #4f46e5; }
+    .price-cta.ghost {
+      background: transparent; color: var(--text-1);
+      border: 1px solid var(--border);
+    }
+    .price-cta.ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+    .price-math {
+      font-size: .8rem; color: var(--text-3); margin-top: 14px;
+      padding-top: 14px; border-top: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .price-math .strike { text-decoration: line-through; color: var(--text-3); }
+    .price-math .savings { color: #86efac; font-weight: 600; }
+
+    /* ── Standalone tools (secondary) ── */
+    .standalone-intro { margin-bottom: 36px; }
     .addins-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px; margin-top: 52px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
     }
     .addin-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 32px;
+      border-radius: 12px; padding: 22px;
       display: flex; flex-direction: column;
-      transition: border-color .2s, transform .2s, box-shadow .2s;
+      transition: border-color .2s, transform .2s;
     }
-    .addin-card:hover {
-      border-color: rgba(59,130,246,.45);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,.4);
-    }
-    .addin-card.coming-soon {
-      opacity: .5; cursor: default; pointer-events: none;
-    }
-    .addin-card.coming-soon:hover { transform: none; box-shadow: none; }
-    .addin-icon { font-size: 2rem; margin-bottom: 18px; display: block; }
-    .addin-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: .7rem; font-weight: 700; letter-spacing: .06em;
-      text-transform: uppercase; padding: 3px 10px; border-radius: 100px;
-      margin-bottom: 14px; width: fit-content;
-    }
-    .tag-live    { background: rgba(34,197,94,.12);  color: #86efac; border: 1px solid rgba(34,197,94,.25); }
-    .tag-soon    { background: rgba(100,116,139,.1); color: var(--text-3); border: 1px solid var(--border); }
-    .addin-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
-    .addin-card p  { font-size: .9rem; color: var(--text-2); line-height: 1.6; flex: 1; }
-    .addin-footer  { margin-top: 24px; display: flex; align-items: center; justify-content: space-between; }
-    .addin-price   { font-size: .9rem; font-weight: 700; color: var(--text-1); }
+    .addin-card:hover { border-color: rgba(99,102,241,.35); transform: translateY(-2px); }
+    .addin-card.coming-soon { opacity: .5; pointer-events: none; }
+    .addin-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+    .addin-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .addin-card p  { font-size: .85rem; color: var(--text-2); line-height: 1.55; flex: 1; margin-bottom: 14px; }
+    .addin-footer  { display: flex; align-items: center; justify-content: space-between; }
+    .addin-price   { font-size: .85rem; font-weight: 700; color: var(--text-1); }
+    .addin-price .small { font-weight: 400; color: var(--text-3); font-size: .76rem; }
     .addin-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--accent); color: #fff;
-      font-size: .85rem; font-weight: 700;
-      padding: 8px 18px; border-radius: 8px;
-      transition: background .2s, transform .15s;
+      font-size: .8rem; font-weight: 600; color: var(--accent);
+      transition: color .2s;
     }
-    .addin-link:hover { background: #2563eb; transform: translateY(-1px); }
+    .addin-link:hover { color: #818cf8; }
+
+    /* ── Web apps strip ── */
+    .webapps-strip {
+      background: var(--bg-1); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 56px 0;
+    }
+    .webapps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .webapp-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+      transition: border-color .2s, transform .2s;
+      display: block;
+    }
+    .webapp-card:hover { border-color: rgba(6,182,212,.35); transform: translateY(-2px); }
+    .webapp-card .icon { font-size: 1.4rem; margin-bottom: 10px; display: block; }
+    .webapp-card h4 { font-size: .95rem; font-weight: 700; margin-bottom: 6px; }
+    .webapp-card p  { font-size: .8rem; color: var(--text-2); line-height: 1.55; margin-bottom: 12px; }
+    .webapp-card .arrow { font-size: .78rem; color: var(--accent2); font-weight: 600; }
 
     /* ── About strip ── */
     .about { background: var(--bg-1); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -165,7 +354,7 @@
       gap: 64px; align-items: center; padding: 80px 0;
     }
     .about h2 { font-size: clamp(1.6rem,2.8vw,2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 16px; }
-    .about p   { font-size: .97rem; color: var(--text-2); line-height: 1.75; margin-bottom: 12px; }
+    .about p   { font-size: .95rem; color: var(--text-2); line-height: 1.75; margin-bottom: 12px; }
     .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .pillar {
       background: var(--bg-2); border: 1px solid var(--border);
@@ -174,23 +363,6 @@
     .pillar-icon { font-size: 1.3rem; margin-bottom: 8px; }
     .pillar h4 { font-size: .9rem; font-weight: 700; margin-bottom: 4px; }
     .pillar p  { font-size: .82rem; color: var(--text-2); margin-bottom: 0; }
-
-    /* ── CTA band ── */
-    .cta-band {
-      text-align: center; padding: 80px 0;
-      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(59,130,246,.1), transparent);
-    }
-    .cta-band h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 12px; }
-    .cta-band p  { color: var(--text-2); font-size: .97rem; margin-bottom: 32px; }
-    .btn-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #fff;
-      font-weight: 700; font-size: 1rem;
-      padding: 14px 32px; border-radius: 10px;
-      transition: background .2s, transform .15s, box-shadow .2s;
-      box-shadow: 0 4px 24px rgba(59,130,246,.3);
-    }
-    .btn-cta:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(59,130,246,.4); }
 
     /* ── Footer ── */
     footer { border-top: 1px solid var(--border); padding: 36px 0; background: var(--bg-0); }
@@ -206,47 +378,29 @@
       font-size: .65rem; font-weight: 600; letter-spacing: .06em;
       text-transform: uppercase; color: var(--text-3);
     }
-    .footer-links { display: flex; gap: 24px; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
     .footer-links a { font-size: .85rem; color: var(--text-3); transition: color .2s; }
     .footer-links a:hover { color: var(--text-2); }
     .footer-copy { font-size: .82rem; color: var(--text-3); }
 
-    /* ── Product categories ── */
-    .category-block { margin-top: 56px; }
-    .category-block:first-of-type { margin-top: 48px; }
-    .category-heading {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 6px;
-    }
-    .category-heading h3 {
-      font-size: 1rem; font-weight: 700; color: var(--text-1);
-    }
-    .category-pill {
-      font-size: .68rem; font-weight: 700; letter-spacing: .07em;
-      text-transform: uppercase; padding: 2px 9px; border-radius: 100px;
-    }
-    .pill-desktop { background: rgba(59,130,246,.12); color: #93c5fd; border: 1px solid rgba(59,130,246,.25); }
-    .pill-web     { background: rgba(6,182,212,.12);  color: #67e8f9; border: 1px solid rgba(6,182,212,.25); }
-    .category-meta { font-size: .82rem; color: var(--text-3); margin-bottom: 0; }
-    .category-divider {
-      border: none; border-top: 1px solid var(--border); margin: 52px 0 0;
-    }
-
-    /* ── Phase cards grid ── */
-    .phase-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 14px; max-width: 780px; margin: 0 auto 36px; text-align: left;
-    }
-
     /* ── Responsive ── */
-    @media (max-width: 800px) {
-      .about-inner { grid-template-columns: 1fr; gap: 36px; }
-      .nav-links   { display: none; }
-      .phase-grid  { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 900px) {
+      .hero-inner    { grid-template-columns: 1fr; gap: 40px; }
+      .mode-grid     { grid-template-columns: repeat(2, 1fr); }
+      .inside-grid   { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .pricing-grid  { grid-template-columns: 1fr; }
+      .demo-grid     { grid-template-columns: 1fr; }
+      .webapps-grid  { grid-template-columns: 1fr; }
+      .about-inner   { grid-template-columns: 1fr; gap: 36px; }
+      .nav-links     { gap: 16px; }
+      .nav-links .nav-link-hide-mobile { display: none; }
     }
     @media (max-width: 500px) {
-      .pillars     { grid-template-columns: 1fr; }
-      .phase-grid  { grid-template-columns: 1fr; }
+      .hero          { padding: 64px 0 56px; }
+      .mode-grid     { grid-template-columns: 1fr; }
+      .inside-grid   { grid-template-columns: 1fr; }
+      .pillars       { grid-template-columns: 1fr; }
+      .nav-cta       { display: none; }
     }
   </style>
 </head>
@@ -261,237 +415,350 @@
           <span class="brand-name">Arch<span>BIM</span></span>
         </a>
         <div class="nav-links">
-          <a href="#products">Products</a>
-          <a href="#about">About</a>
-          <a href="mailto:support@archbim.co.in">Support</a>
+          <a href="/assistant/">Assistant</a>
+          <a href="#tools" class="nav-link-hide-mobile">Tools</a>
+          <a href="#pricing" class="nav-link-hide-mobile">Pricing</a>
+          <a href="#about" class="nav-link-hide-mobile">About</a>
+          <a href="/assistant/" class="nav-cta">Get the Assistant →</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero — Assistant first -->
   <section class="hero">
     <div class="container">
-      <div class="hero-eyebrow">🏗️ &nbsp; Professional BIM Tools for AEC</div>
-      <h1>Precision tools for<br /><span>BIM professionals</span></h1>
-      <p>
-        Desktop add-ins for Revit and browser-based BIM apps —
-        purpose-built to solve real problems on real projects.
-      </p>
-      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
-        <a href="#products" class="btn-cta" style="font-size:.92rem;padding:12px 26px;">See all products →</a>
-        <a href="#about" style="font-size:.88rem;color:var(--text-2);">About ArchBIM ↓</a>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow">⚡ &nbsp; ArchBIM Assistant — for Revit 2025 / 2026</div>
+          <h1>Your BIM<br /><span>talks to you.</span></h1>
+          <p class="hero-sub">
+            A contextual workflow assistant for Revit. Watches what you're doing —
+            project phase, selection, linked models, model health — and queues the
+            right tool from a panel of <strong style="color:var(--text-1);">14+ embedded utilities</strong>.
+            One dockable panel. Zero prompts to type.
+          </p>
+          <div class="hero-cta-row">
+            <a href="/assistant/" class="btn-primary"
+               onclick="gtag('event','cta_click',{cta:'hero-get-assistant'})">
+              Get the Assistant — $15/mo →
+            </a>
+            <a href="#demos" class="btn-secondary">Watch the demos</a>
+          </div>
+          <div class="hero-note">
+            🆓 &nbsp;Free for the first 30 days &nbsp; · &nbsp; No credit card &nbsp; · &nbsp; Cancel anytime
+          </div>
+        </div>
+
+        <!-- Hero visual — Demo Part 1 thumbnail -->
+        <a class="hero-visual" href="https://youtu.be/1k2R7i_mHLM" target="_blank" rel="noopener"
+           onclick="gtag('event','demo_play',{video:'assistant-part1',source:'home-hero'})">
+          <img src="https://img.youtube.com/vi/1k2R7i_mHLM/maxresdefault.jpg"
+               onerror="this.src='https://img.youtube.com/vi/1k2R7i_mHLM/hqdefault.jpg'"
+               alt="ArchBIM Assistant demo — Part 1: Contextual Suggestions"
+               loading="eager" />
+          <div class="hero-visual-play">▶</div>
+        </a>
       </div>
-      <div style="font-size:.8rem;color:var(--text-3);">30-day free trial on every add-in &nbsp;·&nbsp; No credit card &nbsp;·&nbsp; One-time pricing</div>
     </div>
   </section>
 
-  <!-- Products -->
-  <section class="section" id="products">
+  <!-- Workflow modes -->
+  <section class="modes">
     <div class="container">
-      <div class="section-label">Products</div>
-      <h2 class="section-title">Tools that get the job done</h2>
-      <p class="section-sub">
-        Desktop add-ins for Revit and browser-based BIM tools.
-        No bloat, no subscriptions — everything priced fairly.
+      <div style="text-align:center;margin-bottom:36px;">
+        <div class="section-label">How it works</div>
+        <h2 class="section-title" style="margin-bottom:8px;">Four workflow modes. Auto-detected.</h2>
+        <p class="section-sub" style="margin:0 auto;">
+          The Assistant reads your project state and switches between modes —
+          surfacing exactly the tools you need at this moment of the project.
+        </p>
+      </div>
+      <div class="mode-grid">
+        <div class="mode-card">
+          <span class="mode-tag setup">Setup</span>
+          <h4>New project, fresh start</h4>
+          <p>Create levels with sheets, clone a Project Browser organisation from a template, sync View Templates, sanity-check shared coordinates.</p>
+        </div>
+        <div class="mode-card">
+          <span class="mode-tag design">Design</span>
+          <h4>Massing &amp; spaces</h4>
+          <p>Export rooms to Roominess, run client-side daylight analysis, edit room parameters in the browser, push edits back to Revit.</p>
+        </div>
+        <div class="mode-card">
+          <span class="mode-tag coord">Coordination</span>
+          <h4>Linked-model awareness</h4>
+          <p>Create per-level coordination 3D views, run solid-solid clash detection, place wall sleeves where MEP crosses walls, export NWC for Navisworks.</p>
+        </div>
+        <div class="mode-card">
+          <span class="mode-tag doc">Documentation</span>
+          <h4>Sheets, schedules, deliverables</h4>
+          <p>Dissociate dimensions safely, transfer sheets between projects, round-trip rooms / templates / object styles through Excel with diff preview.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's inside — tool chips by phase -->
+  <section class="section" id="tools">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="section-label">What's inside</div>
+        <h2 class="section-title">14+ tools. One panel.</h2>
+        <p class="section-sub" style="margin:0 auto;">
+          Every ArchBIM tool runs from inside the Assistant — no extra installs,
+          no per-tool license keys, no juggling ribbons.
+        </p>
+      </div>
+
+      <div class="inside-grid">
+        <div class="inside-col setup">
+          <h4>Setup</h4>
+          <div class="tool-chip"><span class="tool-chip-icon">📐</span>Create Levels</div>
+          <div class="tool-chip"><span class="tool-chip-icon">🗂️</span>Browser Clone</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📋</span>View Templates round-trip</div>
+          <div class="tool-chip"><span class="tool-chip-icon">🎨</span>Object Styles round-trip</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📌</span>Pin All Datums</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📍</span>Shared Coordinates</div>
+          <div class="tool-chip"><span class="tool-chip-icon">🧹</span>Empty Worksets cleanup</div>
+        </div>
+
+        <div class="inside-col design">
+          <h4>Design</h4>
+          <div class="tool-chip">
+            <span class="tool-chip-icon">🏠</span>Roominess Export / Import
+            <span class="tool-chip-pro">PRO</span>
+          </div>
+          <div class="tool-chip"><span class="tool-chip-icon">☀️</span>Daylight Analysis</div>
+          <div class="tool-chip"><span class="tool-chip-icon">🧾</span>Rooms round-trip</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📊</span>Parameters round-trip</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📐</span>Survey Coordinates</div>
+        </div>
+
+        <div class="inside-col coord">
+          <h4>Coordination</h4>
+          <div class="tool-chip"><span class="tool-chip-icon">🎬</span>Coordination Views</div>
+          <div class="tool-chip">
+            <span class="tool-chip-icon">💥</span>ClashView (BimClash)
+            <span class="tool-chip-pro">PRO</span>
+          </div>
+          <div class="tool-chip"><span class="tool-chip-icon">🔧</span>Wall Sleeves</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📦</span>NWC Export (Navisworks)</div>
+        </div>
+
+        <div class="inside-col doc">
+          <h4>Documentation</h4>
+          <div class="tool-chip"><span class="tool-chip-icon">📏</span>Dissociate Dimensions</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📄</span>Sheet Transfer</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📊</span>Rooms to Excel</div>
+          <div class="tool-chip"><span class="tool-chip-icon">📋</span>Sheet Number rules</div>
+        </div>
+      </div>
+
+      <p class="inside-foot">
+        <strong>+ pre-emptive QA/QC checks</strong> on the Health tab —
+        empty worksets, missing fire ratings, views without templates, model overlaps.
+        New tools added regularly; updates land automatically inside Revit.
       </p>
+    </div>
+  </section>
 
-      <!-- ── Revit Add-ins ── -->
-      <div class="category-block">
-        <div class="category-heading">
-          <h3>🖥️ Revit Add-ins</h3>
-          <span class="category-pill pill-desktop">Desktop</span>
-        </div>
-        <p class="category-meta">Windows · Revit 2025 / 2026 · One-time license</p>
-        <div class="addins-grid">
-
-          <!-- Survey Coordinates -->
-          <div class="addin-card">
-            <span class="addin-icon">📍</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Available</div>
-            <h3>Survey Coordinates</h3>
-            <p>
-              Capture and update real-world Northing &amp; Easting on Revit
-              Site and Planting elements — in bulk, in seconds.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">$12 &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">one-time · <span style="color:var(--green)">30-day free trial</span></span></div>
-              <a href="/survey-coordinates/" class="addin-link">Learn more →</a>
-            </div>
+  <!-- Demos -->
+  <section class="section demos" id="demos" style="padding-top:64px;padding-bottom:72px;">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="section-label">See it in action</div>
+        <h2 class="section-title" style="margin-bottom:8px;">Two short demos</h2>
+        <p class="section-sub" style="margin:0 auto;">
+          Real Revit sessions, real model state, real one-click execution.
+        </p>
+      </div>
+      <div class="demo-grid">
+        <a class="demo-card" href="https://youtu.be/1k2R7i_mHLM" target="_blank" rel="noopener"
+           onclick="gtag('event','demo_play',{video:'assistant-part1',source:'home-demos'})">
+          <div class="demo-thumb">
+            <img src="https://img.youtube.com/vi/1k2R7i_mHLM/hqdefault.jpg" alt="Part 1 — Contextual Suggestions" loading="lazy" />
+            <div class="demo-play">▶</div>
           </div>
-
-          <!-- Sheet Transfer -->
-          <div class="addin-card">
-            <span class="addin-icon">📋</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Available</div>
-            <h3>Sheet Transfer</h3>
-            <p>
-              Copy sheets between open Revit projects — titleblocks,
-              parameters, and level renaming handled automatically.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">$18 &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">one-time · <span style="color:var(--green)">30-day free trial</span></span></div>
-              <a href="/sheet-transfer/" class="addin-link">Learn more →</a>
-            </div>
+          <div class="demo-info">
+            <h3>Part 1 — Contextual Suggestions</h3>
+            <p>Workflow modes, auto-detection, one-click tools.</p>
           </div>
-
-          <!-- Wall Sleeve Cuts -->
-          <div class="addin-card">
-            <span class="addin-icon">🔧</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Available</div>
-            <h3>Wall Sleeve Cuts</h3>
-            <p>
-              Detect MEP-to-wall intersections in linked models and place
-              dimensioned sleeve families — walls cut, marks generated,
-              schedule populated automatically.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">$48 &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">one-time · <span style="color:var(--green)">30-day free trial</span></span></div>
-              <a href="/wall-sleeves/" class="addin-link">Learn more →</a>
-            </div>
+        </a>
+        <a class="demo-card" href="https://youtu.be/F4iEHsw9bZg" target="_blank" rel="noopener"
+           onclick="gtag('event','demo_play',{video:'assistant-part2',source:'home-demos'})">
+          <div class="demo-thumb">
+            <img src="https://img.youtube.com/vi/F4iEHsw9bZg/hqdefault.jpg" alt="Part 2 — Clash Round-Trip" loading="lazy" />
+            <div class="demo-play">▶</div>
           </div>
-
-          <!-- xlConnect -->
-          <div class="addin-card">
-            <span class="addin-icon">📊</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Available</div>
-            <h3>xlConnect</h3>
-            <p>
-              Round-trip Excel editing for Revit: export Rooms, View Templates,
-              Object Styles and Parameters to structured spreadsheets — edit,
-              then import back with a live diff preview before anything changes.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">$30 &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">one-time · <span style="color:var(--green)">30-day free trial</span></span></div>
-              <a href="/excel-connect/" class="addin-link">Learn more →</a>
-            </div>
+          <div class="demo-info">
+            <h3>Part 2 — Clash Round-Trip</h3>
+            <p>Detect in Revit, triage in browser, 3D views back in Revit.</p>
           </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-          <!-- Browser Clone -->
-          <div class="addin-card">
-            <span class="addin-icon">🗂️</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Available</div>
-            <h3>Browser Clone</h3>
-            <p>
-              Clone your Project Browser organisation from any open project —
-              shared parameters, view templates and seed views transferred
-              automatically.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">$25 &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">one-time · <span style="color:var(--green)">30-day free trial</span></span></div>
-              <a href="/browser-clone/" class="addin-link">Learn more →</a>
-            </div>
-          </div>
-
-          <!-- ArchBIM Assistant -->
-          <div class="addin-card">
-            <span class="addin-icon">🧠</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Available</div>
-            <h3>ArchBIM Assistant</h3>
-            <p>
-              Contextual workflow assistant — detects your project phase and
-              suggests the right tool at the right moment. One dockable panel,
-              zero prompts to type.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">$15/mo &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">subscription</span></div>
-              <a href="/assistant/" class="addin-link">Learn more →</a>
-            </div>
-          </div>
-
-          <!-- More add-ins placeholder -->
-          <div class="addin-card coming-soon">
-            <span class="addin-icon">📦</span>
-            <div class="addin-tag tag-soon">Coming soon</div>
-            <h3>More add-ins</h3>
-            <p>
-              More Revit tools in development.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price" style="color:var(--text-3)">— TBA —</div>
-            </div>
-          </div>
-
-        </div>
+  <!-- Pricing -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">One subscription. Everything included.</h2>
+        <p class="section-sub" style="margin:0 auto;">
+          The Assistant is the way every new ArchBIM tool ships first.
+          Pro web features (Roominess Pro, ClashView Pro) unlock automatically
+          when you export from a licensed install.
+        </p>
       </div>
 
-      <hr class="category-divider" />
-
-      <!-- ── Web Apps ── -->
-      <div class="category-block">
-        <div class="category-heading">
-          <h3>🌐 Web Apps</h3>
-          <span class="category-pill pill-web">Browser</span>
+      <div class="pricing-grid">
+        <!-- Assistant -->
+        <div class="price-card primary">
+          <h3>ArchBIM Assistant</h3>
+          <p class="desc">Everything ArchBIM has built and will build, in one panel.</p>
+          <div class="price-amount">$15<span class="per"> / month</span></div>
+          <ul class="price-features">
+            <li>All 14+ Revit tools, built-in</li>
+            <li>Roominess Pro auto-unlocked on export</li>
+            <li>ClashView Pro auto-unlocked on export</li>
+            <li>Daylight Analysis with reports</li>
+            <li>Pre-emptive QA/QC checks on the Health tab</li>
+            <li>Auto-updates inside Revit — new tools land automatically</li>
+            <li>Cancel anytime · 30-day free trial</li>
+          </ul>
+          <a href="/assistant/" class="price-cta"
+             onclick="gtag('event','cta_click',{cta:'pricing-assistant'})">
+            Start your 30-day trial →
+          </a>
+          <p class="price-math">
+            <span class="strike">Standalone: $148+ in licenses</span>
+            &nbsp;·&nbsp;
+            <span class="savings">Saves the math</span> for one month's subscription.
+          </p>
         </div>
-        <p class="category-meta">No install · Works on any device · Free to use</p>
-        <div class="addins-grid">
 
-          <!-- Core Layout -->
-          <div class="addin-card">
-            <span class="addin-icon">🏢</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Beta</div>
-            <h3>Core Layout</h3>
-            <p>
-              Visualise regulation-compliant lifts, stairs, and shafts for
-              UK residential buildings — concept-stage 3D volumes, straight
-              in the browser.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">Free &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">web app · no account needed</span></div>
-              <a href="/core-layout/" class="addin-link">Learn more →</a>
-            </div>
-          </div>
-
-          <!-- Roominess -->
-          <div class="addin-card">
-            <span class="addin-icon">🏠</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Beta</div>
-            <h3>Roominess</h3>
-            <p>
-              Visualise your Revit rooms in the browser — colour-coded 3D
-              boxes, interactive level and area filters, drill into rooms
-              to see openings and components. Export from Revit, drop the
-              file in, explore instantly.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">Free &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">web app · drag &amp; drop</span></div>
-              <a href="https://roominess.archbim.co.in" class="addin-link" onclick="gtag('event','app_open',{app_name:'roominess'})">Try it →</a>
-            </div>
-          </div>
-
-          <!-- ClashView -->
-          <div class="addin-card">
-            <span class="addin-icon">💥</span>
-            <div class="addin-tag tag-live">✓ &nbsp; Live</div>
-            <h3>ClashView</h3>
-            <p>
-              Solid-solid clash detection inside Revit with an interactive 3D
-              web dashboard. Star the clashes that matter, and the Assistant
-              creates one 3D section-box view per clash — ready to fix. Bundled
-              with ArchBIM Assistant.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price">Included &nbsp;<span style="font-weight:400;color:var(--text-3);font-size:.8rem">with Assistant</span></div>
-              <a href="/bimclash/" class="addin-link">Learn more →</a>
-            </div>
-          </div>
-
-          <!-- More web apps placeholder -->
-          <div class="addin-card coming-soon">
-            <span class="addin-icon">🔭</span>
-            <div class="addin-tag tag-soon">Coming soon</div>
-            <h3>More web tools</h3>
-            <p>
-              More browser-based BIM tools on the roadmap.
-            </p>
-            <div class="addin-footer">
-              <div class="addin-price" style="color:var(--text-3)">— TBA —</div>
-            </div>
-          </div>
-
+        <!-- Standalone -->
+        <div class="price-card">
+          <h3>Or buy one tool at a time</h3>
+          <p class="desc">Standalone licenses for individual workflows. One-time, no subscription.</p>
+          <div class="price-amount" style="font-size:1.6rem;">From $12<span class="per"> / tool</span></div>
+          <ul class="price-features">
+            <li>Survey Coordinates · $12</li>
+            <li>Sheet Transfer · $18</li>
+            <li>Browser Clone · $25</li>
+            <li>xlConnect (Excel round-trip) · $30</li>
+            <li>Wall Sleeves · $48</li>
+            <li>30-day free trial on each</li>
+          </ul>
+          <a href="#standalone" class="price-cta ghost">Browse standalone tools ↓</a>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- Standalone tools (secondary) -->
+  <section class="section" id="standalone" style="padding-top:48px;">
+    <div class="container">
+      <div class="standalone-intro">
+        <div class="section-label">Standalone licenses</div>
+        <h2 class="section-title" style="font-size:1.6rem;">Individual Revit tools</h2>
+        <p class="section-sub">
+          Prefer to pay once for a single workflow? Each tool is also sold separately.
+          Trial it for 30 days first.
+        </p>
+      </div>
+
+      <div class="addins-grid">
+        <div class="addin-card">
+          <span class="addin-icon">📍</span>
+          <h3>Survey Coordinates</h3>
+          <p>Capture and update real-world Northing &amp; Easting on Site and Planting elements.</p>
+          <div class="addin-footer">
+            <div class="addin-price">$12 <span class="small">one-time</span></div>
+            <a href="/survey-coordinates/" class="addin-link">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="addin-card">
+          <span class="addin-icon">📋</span>
+          <h3>Sheet Transfer</h3>
+          <p>Copy sheets between open projects — titleblocks, parameters, level renaming handled.</p>
+          <div class="addin-footer">
+            <div class="addin-price">$18 <span class="small">one-time</span></div>
+            <a href="/sheet-transfer/" class="addin-link">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="addin-card">
+          <span class="addin-icon">🗂️</span>
+          <h3>Browser Clone</h3>
+          <p>Clone Project Browser organisation, View Templates, and seed views from any open project.</p>
+          <div class="addin-footer">
+            <div class="addin-price">$25 <span class="small">one-time</span></div>
+            <a href="/browser-clone/" class="addin-link">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="addin-card">
+          <span class="addin-icon">📊</span>
+          <h3>xlConnect</h3>
+          <p>Excel round-trip for Rooms, View Templates, Object Styles, Parameters — with diff preview.</p>
+          <div class="addin-footer">
+            <div class="addin-price">$30 <span class="small">one-time</span></div>
+            <a href="/excel-connect/" class="addin-link">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="addin-card">
+          <span class="addin-icon">🔧</span>
+          <h3>Wall Sleeves</h3>
+          <p>MEP-to-wall intersection detection with auto-placed dimensioned sleeve families.</p>
+          <div class="addin-footer">
+            <div class="addin-price">$48 <span class="small">one-time</span></div>
+            <a href="/wall-sleeves/" class="addin-link">Learn more →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Web apps strip -->
+  <section class="webapps-strip">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:8px;">
+        <div>
+          <div class="section-label" style="color:var(--accent2);">Browser-based</div>
+          <h2 class="section-title" style="font-size:1.4rem;margin-bottom:6px;">Free web apps</h2>
+          <p style="font-size:.9rem;color:var(--text-3);">
+            No install. Drop a JSON, explore.
+            <span style="color:var(--text-2);">Pro features auto-unlock when you export from a licensed Assistant.</span>
+          </p>
+        </div>
+      </div>
+      <div class="webapps-grid">
+        <a class="webapp-card" href="https://roominess.archbim.co.in"
+           onclick="gtag('event','app_open',{app_name:'roominess'})">
+          <span class="icon">🏠</span>
+          <h4>Roominess</h4>
+          <p>3D + 2D plan view of your Revit rooms with daylight analysis. Edit parameters and round-trip back to Revit.</p>
+          <span class="arrow">Open Roominess →</span>
+        </a>
+        <a class="webapp-card" href="/bimclash/">
+          <span class="icon">💥</span>
+          <h4>ClashView</h4>
+          <p>Interactive 3D dashboard for clashes detected in Revit. Star the ones that matter — get one 3D view per clash.</p>
+          <span class="arrow">Learn more →</span>
+        </a>
+        <a class="webapp-card" href="/core-layout/">
+          <span class="icon">🏢</span>
+          <h4>Core Layout</h4>
+          <p>Visualise regulation-compliant lifts, stairs, and shafts for UK residential — concept-stage 3D volumes.</p>
+          <span class="arrow">Try the beta →</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -507,9 +774,9 @@
             on real projects — not theoretical edge cases.
           </p>
           <p>
-            Every tool is designed around the practical constraints of AEC
-            workflows: tight deadlines, complex models, and clients who just
-            want the coordinates to be right.
+            The Assistant is the platform: every new tool ships there first,
+            then a few weeks later as a standalone license for users who only
+            want one workflow. Either way, you're working with the same code.
           </p>
         </div>
         <div class="pillars">
@@ -538,37 +805,6 @@
     </div>
   </section>
 
-  <!-- CTA — ArchBIM Assistant -->
-  <section class="cta-band">
-    <div class="container">
-      <h2>Your BIM talks to you.</h2>
-      <p style="max-width:580px;margin:0 auto 28px;">
-        ArchBIM Assistant detects your project phase and queues the right
-        workflow — from setting up levels and templates to coordinating
-        linked models and producing documentation. One click to execute.
-      </p>
-      <div class="phase-grid">
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#818cf8;margin-bottom:6px;">Setup</div>
-          <div style="font-size:.82rem;color:var(--text-2);line-height:1.5;">Create levels, clone browser organisation, sync view templates</div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#34d399;margin-bottom:6px;">Design</div>
-          <div style="font-size:.82rem;color:var(--text-2);line-height:1.5;">Export rooms, run daylight analysis, edit parameters in-browser</div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fbbf24;margin-bottom:6px;">Coordination</div>
-          <div style="font-size:.82rem;color:var(--text-2);line-height:1.5;">Create coordination views, detect clashes, place wall sleeves</div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;margin-bottom:6px;">Documentation</div>
-          <div style="font-size:.82rem;color:var(--text-2);line-height:1.5;">Dissociate dimensions, transfer sheets, export to Excel</div>
-        </div>
-      </div>
-      <a href="/assistant/" class="btn-cta">Explore the Assistant →</a>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -581,10 +817,11 @@
           <span class="footer-tagline">BIM &thinsp;|&thinsp; Automation &thinsp;|&thinsp; Intelligence</span>
         </a>
         <div class="footer-links">
+          <a href="/assistant/">Assistant</a>
           <a href="mailto:support@archbim.co.in">support@archbim.co.in</a>
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/terms.html">Terms of Service</a>
-          <a href="/refund.html">Refund Policy</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/refund.html">Refund</a>
         </div>
         <div class="footer-copy">© 2026 ArchBIM. All rights reserved.</div>
       </div>
