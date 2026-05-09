@@ -225,7 +225,7 @@
     .demos {
       background: var(--bg-1); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     }
-    .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 40px auto 0; }
+    .demo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 40px auto 0; }
     .demo-card {
       background: var(--bg-card); border: 1px solid var(--border);
       border-radius: var(--radius); overflow: hidden;
@@ -389,7 +389,8 @@
       .mode-grid     { grid-template-columns: repeat(2, 1fr); }
       .inside-grid   { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .pricing-grid  { grid-template-columns: 1fr; }
-      .demo-grid     { grid-template-columns: 1fr; }
+      /* 3 demo cards → 2 cols tablet, 1 col phone (handled at 500px) */
+      .demo-grid     { grid-template-columns: repeat(2, 1fr); max-width: 720px; }
       .webapps-grid  { grid-template-columns: 1fr; }
       .about-inner   { grid-template-columns: 1fr; gap: 36px; }
       .nav-links     { gap: 16px; }
@@ -400,6 +401,7 @@
       .mode-grid     { grid-template-columns: 1fr; }
       .inside-grid   { grid-template-columns: 1fr; }
       .pillars       { grid-template-columns: 1fr; }
+      .demo-grid     { grid-template-columns: 1fr; }
       .nav-cta       { display: none; }
     }
   </style>
@@ -568,7 +570,7 @@
     <div class="container">
       <div style="text-align:center;">
         <div class="section-label">See it in action</div>
-        <h2 class="section-title" style="margin-bottom:8px;">Two short demos</h2>
+        <h2 class="section-title" style="margin-bottom:8px;">Three short demos</h2>
         <p class="section-sub" style="margin:0 auto;">
           Real Revit sessions, real model state, real one-click execution.
         </p>
@@ -594,6 +596,17 @@
           <div class="demo-info">
             <h3>Part 2 — Clash Round-Trip</h3>
             <p>Detect in Revit, triage in browser, 3D views back in Revit.</p>
+          </div>
+        </a>
+        <a class="demo-card" href="https://youtu.be/fWX2ZjMKz2E" target="_blank" rel="noopener"
+           onclick="gtag('event','demo_play',{video:'assistant-part3',source:'home-demos'})">
+          <div class="demo-thumb">
+            <img src="https://img.youtube.com/vi/fWX2ZjMKz2E/hqdefault.jpg" alt="Part 3 — Roominess Report" loading="lazy" />
+            <div class="demo-play">▶</div>
+          </div>
+          <div class="demo-info">
+            <h3>Part 3 — Roominess Report</h3>
+            <p>One click in Revit → a finished architectural PDF report in your browser, in three minutes.</p>
           </div>
         </a>
       </div>
