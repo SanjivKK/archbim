@@ -1,0 +1,39 @@
+name: Guard — block sensitive files
+
+# This repository is PUBLIC. CLAUDE.md (private IP + trial-signing key phrases)
+# and the .claude/ working directory must never be committed here. This workflow
+# fails any push or pull request that tracks them, or that contains a known
+# ArchBIM secret key-phrase. Defence-in-depth alongside the .gitignore entries.
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Block CLAUDE.md and .claude/
+        run: |
+          bad=$(git ls-files | grep -iE '(^|/)CLAUDE\.md$|(^|/)\.claude/' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::Sensitive path(s) tracked in this PUBLIC repo:"
+            echo "$bad"
+            echo "Fix: git rm -r --cached <path>  (and keep it listed in .gitignore)"
+            exit 1
+          fi
+          echo "OK — no CLAUDE.md or .claude/ tracked."
+
+      - name: Block known secret key-phrases
+        run: |
+          # Exclude this workflow so its own example patterns don't self-trip.
+          if git grep -nIE 'ARCHBIM_[A-Z]+_[0-9]{4}_KEY|HMAC_[A-Z]{2,}' -- . ':(exclude).github/**'; then
+            echo "::error::A secret-looking key phrase is committed. Remove it before pushing."
+            exit 1
+          fi
+          echo "OK — no known secret key-phrases found."
