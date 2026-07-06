@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>xlConnect for Revit — Excel Round-Trip for Revit Data | ArchBIM</title>
-  <meta name="description" content="Export Rooms, View Templates, Object Styles, and Parameters from Revit to Excel — edit in Excel — import back with a live preview of every change. xlConnect by ArchBIM." />
+  <title>xlConnect for Revit â€” Excel Round-Trip for Revit Data | ArchBIM</title>
+  <meta name="description" content="Export Rooms, View Templates, Object Styles, and Parameters from Revit to Excel â€” edit in Excel â€” import back with a live preview of every change. xlConnect by ArchBIM." />
   <link rel="icon" type="image/png" href="/images/favicon-square.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -16,7 +16,7 @@
     gtag('config', 'G-EDREXHEZKN');
   </script>
   <style>
-    /* ── Reset & base ─────────────────────────────────────────── */
+    /* â”€â”€ Reset & base â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -47,7 +47,7 @@
     .section    { padding: 96px 0; }
     .section-sm { padding: 64px 0; }
 
-    /* ── Nav ──────────────────────────────────────────────────── */
+    /* â”€â”€ Nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(8, 13, 26, 0.85);
@@ -73,7 +73,7 @@
     }
     .btn-buy-nav:hover { background: #2563eb; transform: translateY(-1px); }
 
-    /* ── Hero ─────────────────────────────────────────────────── */
+    /* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .hero {
       padding: 120px 0 96px;
       background:
@@ -118,7 +118,7 @@
     .btn-secondary:hover { color: var(--text-1); }
     .hero-note { margin-top: 20px; font-size: .82rem; color: var(--text-3); display: flex; align-items: center; gap: 6px; }
 
-    /* ── Hero visual — Excel workbook mock ─────────────────────── */
+    /* â”€â”€ Hero visual â€” Excel workbook mock â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .hero-visual {
       background: var(--bg-card); border: 1px solid var(--border);
       border-radius: 16px; overflow: hidden;
@@ -164,7 +164,7 @@
     /* cols: Cat(2fr) Vis(1fr) PLC(1.2fr) PLW(0.9fr) PLP(1.5fr) Tr(0.8fr) CutLC(1.2fr) CEC(0.9fr) */
     .vrow { grid-template-columns: 2fr 1fr 1.2fr 0.9fr 1.5fr 0.8fr 1.2fr 0.9fr; }
 
-    /* ── Stats strip ──────────────────────────────────────────── */
+    /* â”€â”€ Stats strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .stats {
       border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
       background: var(--bg-1);
@@ -177,7 +177,7 @@
     .stat-num { font-size: 1.9rem; font-weight: 800; color: var(--accent); line-height: 1; }
     .stat-label { font-size: .82rem; color: var(--text-2); margin-top: 4px; }
 
-    /* ── Features ─────────────────────────────────────────────── */
+    /* â”€â”€ Features â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .section-label {
       font-size: .78rem; font-weight: 700; letter-spacing: .1em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
@@ -210,7 +210,7 @@
     }
     .cmd-pill.green { background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.2); color: #86efac; }
 
-    /* ── How it works ─────────────────────────────────────────── */
+    /* â”€â”€ How it works â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .how { background: var(--bg-1); }
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 56px; }
     .step { position: relative; }
@@ -219,7 +219,7 @@
     .step p   { font-size: .9rem; color: var(--text-2); line-height: 1.6; }
     .step-connector { position: absolute; top: 20px; right: -14px; color: var(--border); font-size: 1.2rem; }
 
-    /* ── Video ────────────────────────────────────────────────── */
+    /* â”€â”€ Video â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .video-wrap {
       position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
       border-radius: 16px; border: 1px solid var(--border);
@@ -231,15 +231,15 @@
       border: none; border-radius: 16px;
     }
 
-    /* ── Requirements ─────────────────────────────────────────── */
+    /* â”€â”€ Requirements â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
     .req-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; }
     .req-card h3 { font-size: .9rem; font-weight: 700; color: var(--text-2); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
     .req-list { list-style: none; }
     .req-list li { font-size: .92rem; color: var(--text-1); padding: 5px 0; display: flex; align-items: flex-start; gap: 10px; }
-    .req-list li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .req-list li::before { content: "âœ“"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 
-    /* ── Pricing ──────────────────────────────────────────────── */
+    /* â”€â”€ Pricing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .pricing { background: var(--bg-1); }
     .pricing-intro { font-size: .95rem; color: var(--text-2); margin-top: 12px; }
     .pricing-grid {
@@ -278,7 +278,7 @@
       border-bottom: 1px solid var(--border);
     }
     .price-features li:last-child { border-bottom: none; }
-    .price-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .price-features li::before { content: "âœ“"; color: var(--green); font-weight: 700; flex-shrink: 0; }
     .btn-checkout, .btn-trial {
       display: block; width: 100%; font-weight: 700; font-size: 1rem;
       padding: 15px; border-radius: 10px;
@@ -294,7 +294,7 @@
     .btn-trial:hover { background: rgba(34,197,94,.2); transform: translateY(-2px); }
     .price-note { margin-top: 14px; font-size: .78rem; color: var(--text-3); display: flex; align-items: center; justify-content: center; gap: 6px; }
 
-    /* ── Footer ───────────────────────────────────────────────── */
+    /* â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     footer { border-top: 1px solid var(--border); background: var(--bg-0); padding: 40px 0; }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
     .footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
@@ -308,7 +308,7 @@
     .footer-links a:hover { color: var(--text-2); }
     .footer-copy { font-size: .82rem; color: var(--text-3); }
 
-    /* ── Responsive ───────────────────────────────────────────── */
+    /* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     @media (max-width: 900px) {
       .hero-inner    { grid-template-columns: 1fr; }
       .hero-visual   { display: none; }
@@ -335,7 +335,7 @@
 </head>
 <body>
 
-  <!-- ── Navigation ──────────────────────────────────────────── -->
+  <!-- â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <nav>
     <div class="container">
       <div class="nav-inner">
@@ -349,19 +349,19 @@
           <a href="#demo">Demo</a>
           <a href="#pricing">Pricing</a>
         </div>
-        <a href="https://archbim.lemonsqueezy.com/checkout/buy/a8347e7d-9d7f-4170-b9ac-6a419fc1a2c5" class="btn-buy-nav" onclick="gtag('event','begin_checkout',{product:'xlConnect',value:30,currency:'USD'})">Buy — $30 →</a>
+        <a href="https://archbim.lemonsqueezy.com/checkout/buy/a8347e7d-9d7f-4170-b9ac-6a419fc1a2c5" class="btn-buy-nav" onclick="gtag('event','begin_checkout',{product:'xlConnect',value:30,currency:'USD'})">Buy â€” $30 â†’</a>
       </div>
     </div>
   </nav>
 
-  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <!-- â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <section class="hero">
     <div class="container">
       <div class="hero-inner">
 
         <div class="hero-text">
           <div class="hero-badge">
-            <span>📊</span> Revit Add-in
+            <span>ðŸ“Š</span> Revit Add-in
           </div>
           <h1>
             Revit data in <span>Excel.</span><br />
@@ -370,23 +370,23 @@
           <p>
             xlConnect gives you a two-way Excel round-trip for Rooms,
             View Templates, Object Styles, and Parameters.
-            Edit in Excel, import back with a live diff preview — every
+            Edit in Excel, import back with a live diff preview â€” every
             change shown before it touches the model.
           </p>
           <div class="hero-cta">
             <a href="#pricing" class="btn-primary">
-              Try Free — 30 Days &nbsp;→
+              Try Free â€” 30 Days &nbsp;â†’
             </a>
             <a href="#how-it-works" class="btn-secondary">
-              See how it works ↓
+              See how it works â†“
             </a>
           </div>
           <div class="hero-note">
-            ⬇ &nbsp;Free 30-day trial · No credit card · Revit 2025–2026
+            â¬‡ &nbsp;Free 30-day trial Â· No credit card Â· Revit 2025â€“2026
           </div>
         </div>
 
-        <!-- Hero visual — Excel workbook mock-up -->
+        <!-- Hero visual â€” Excel workbook mock-up -->
         <div class="hero-visual">
           <div class="visual-bar">
             <div class="visual-dot" style="background:#ef4444"></div>
@@ -468,9 +468,9 @@
             </div>
           </div>
           <div style="padding:8px 12px;background:var(--bg-2);border-top:1px solid var(--border);font-size:.68rem;color:var(--text-3);display:flex;gap:12px">
-            <span style="color:#93c5fd">■</span> Dropdown &nbsp;
-            <span style="color:#fde68a">■</span> Colour input &nbsp;
-            <span style="color:#94a3b8">■</span> Read-only
+            <span style="color:#93c5fd">â– </span> Dropdown &nbsp;
+            <span style="color:#fde68a">â– </span> Colour input &nbsp;
+            <span style="color:#94a3b8">â– </span> Read-only
           </div>
         </div>
 
@@ -478,13 +478,13 @@
     </div>
   </section>
 
-  <!-- ── Stats ───────────────────────────────────────────────── -->
+  <!-- â”€â”€ Stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <div class="stats">
     <div class="container">
       <div class="stats-inner">
         <div class="stat">
           <div class="stat-num">4</div>
-          <div class="stat-label">Commands: Rooms · VT · Object Styles · Parameters</div>
+          <div class="stat-label">Commands: Rooms Â· VT Â· Object Styles Â· Parameters</div>
         </div>
         <div class="stat">
           <div class="stat-num">6</div>
@@ -496,31 +496,31 @@
         </div>
         <div class="stat">
           <div class="stat-num">2</div>
-          <div class="stat-label">Revit versions (2025–2026)</div>
+          <div class="stat-label">Revit versions (2025â€“2026)</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── Features ────────────────────────────────────────────── -->
+  <!-- â”€â”€ Features â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <section class="section" id="features">
     <div class="container">
       <div class="section-label">Features</div>
       <h2 class="section-title">Every Revit data type.<br />One Excel round-trip.</h2>
       <p class="section-sub">
-        xlConnect gives you a consistent export → edit → import workflow
-        for four key data types — with colour-coded Excel workbooks that
+        xlConnect gives you a consistent export â†’ edit â†’ import workflow
+        for four key data types â€” with colour-coded Excel workbooks that
         any team member can read and modify.
       </p>
       <div class="features-grid">
 
         <div class="feature-card">
-          <span class="feature-icon">🛏️</span>
+          <span class="feature-icon">ðŸ›ï¸</span>
           <h3>Room Data Export &amp; Import</h3>
           <p>
             Export room names, numbers, areas, levels, heights, and finish parameters
             to a colour-coded workbook. Openings, Components, and per-level breakdowns
-            each get their own sheet. Import back with an element ID–matched preview.
+            each get their own sheet. Import back with an element IDâ€“matched preview.
           </p>
           <div class="cmd-pills">
             <span class="cmd-pill">Rooms</span>
@@ -530,10 +530,10 @@
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">🎨</span>
+          <span class="feature-icon">ðŸŽ¨</span>
           <h3>View Template Export &amp; Import</h3>
           <p>
-            Export every View Template to a 6-sheet workbook — basic properties,
+            Export every View Template to a 6-sheet workbook â€” basic properties,
             model category overrides, annotation overrides, filters, and template control.
             Dropdown validation for line weights, patterns, and detail levels built in.
           </p>
@@ -545,11 +545,11 @@
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">✏️</span>
+          <span class="feature-icon">âœï¸</span>
           <h3>Object Styles Export &amp; Import</h3>
           <p>
-            Export all model and annotation category Object Styles — line weights,
-            colours, and line patterns — to a single workbook. Edit in Excel and
+            Export all model and annotation category Object Styles â€” line weights,
+            colours, and line patterns â€” to a single workbook. Edit in Excel and
             import back to standardise styles across the entire project in seconds.
           </p>
           <div class="cmd-pills">
@@ -559,12 +559,12 @@
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">🔖</span>
+          <span class="feature-icon">ðŸ”–</span>
           <h3>Parameter Export &amp; Import</h3>
           <p>
             Export element parameters from the active view to Excel.
-            Edit values in bulk — renaming, updating notes, setting
-            codes — then import back. Changes are shown in a diff
+            Edit values in bulk â€” renaming, updating notes, setting
+            codes â€” then import back. Changes are shown in a diff
             preview before any edits are applied.
           </p>
           <div class="cmd-pills">
@@ -574,29 +574,29 @@
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">🔍</span>
+          <span class="feature-icon">ðŸ”</span>
           <h3>Live Diff Preview</h3>
           <p>
             Every import command shows a diff table before touching the model:
             current value, new value, and status for each row. Read-only fields
-            are shown greyed out. Apply only when you're satisfied — or cancel
+            are shown greyed out. Apply only when you're satisfied â€” or cancel
             and adjust the Excel file.
           </p>
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">🗂️</span>
+          <span class="feature-icon">ðŸ—‚ï¸</span>
           <h3>Smart Template Mapping</h3>
           <p>
             When importing a View Template, xlConnect reads the template name
             and view type directly from the Excel file and auto-selects the
             best matching template in your project. Floor plan templates map
-            to floor plans, sections to sections — change the mapping if needed.
+            to floor plans, sections to sections â€” change the mapping if needed.
           </p>
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">🔒</span>
+          <span class="feature-icon">ðŸ”’</span>
           <h3>Protected, Readable Workbooks</h3>
           <p>
             Exported workbooks are colour-coded: light blue for dropdowns,
@@ -607,21 +607,21 @@
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">🔄</span>
+          <span class="feature-icon">ðŸ”„</span>
           <h3>Backward Compatible</h3>
           <p>
             xlConnect automatically detects whether an Excel file was
             exported by the current version or an earlier one and applies
-            the correct parsing logic — so old workbooks continue to import
+            the correct parsing logic â€” so old workbooks continue to import
             without any manual adjustments.
           </p>
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">🧩</span>
+          <span class="feature-icon">ðŸ§©</span>
           <h3>Works Alongside Dynamo</h3>
           <p>
-            xlConnect uses EPPlus for Excel — no dependency on the
+            xlConnect uses EPPlus for Excel â€” no dependency on the
             DocumentFormat.OpenXml library that conflicts with DynamoForRevit.
             Load Dynamo and xlConnect in the same Revit session without crashes.
           </p>
@@ -631,44 +631,44 @@
     </div>
   </section>
 
-  <!-- ── How it works ────────────────────────────────────────── -->
+  <!-- â”€â”€ How it works â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <section class="section how" id="how-it-works">
     <div class="container">
       <div class="section-label">Workflow</div>
       <h2 class="section-title">Export. Edit. Preview. Import.</h2>
       <p class="section-sub">
-        The same four-step pattern for every data type — consistent,
+        The same four-step pattern for every data type â€” consistent,
         predictable, and reversible.
       </p>
       <div class="steps">
         <div class="step">
           <div class="step-num">01</div>
           <h3>Export from Revit</h3>
-          <p>Click <strong>Export to Excel</strong> from the xlConnect ribbon tab. Choose the data type — Rooms, View Templates, Object Styles, or Parameters. A colour-coded workbook is saved to disk.</p>
-          <div class="step-connector">→</div>
+          <p>Click <strong>Export to Excel</strong> from the xlConnect ribbon tab. Choose the data type â€” Rooms, View Templates, Object Styles, or Parameters. A colour-coded workbook is saved to disk.</p>
+          <div class="step-connector">â†’</div>
         </div>
         <div class="step">
           <div class="step-num">02</div>
           <h3>Edit in Excel</h3>
-          <p>Open the workbook in Excel. Edit the cells with light blue or yellow backgrounds — these are the editable fields. Grey cells are read-only and locked. Dropdowns guide valid entries.</p>
-          <div class="step-connector">→</div>
+          <p>Open the workbook in Excel. Edit the cells with light blue or yellow backgrounds â€” these are the editable fields. Grey cells are read-only and locked. Dropdowns guide valid entries.</p>
+          <div class="step-connector">â†’</div>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <h3>Preview the diff</h3>
-          <p>Click <strong>Import from Excel</strong>. xlConnect reads your edited file, compares every value against the current model state, and shows a diff table — what will change, what is unchanged, what is read-only.</p>
-          <div class="step-connector">→</div>
+          <p>Click <strong>Import from Excel</strong>. xlConnect reads your edited file, compares every value against the current model state, and shows a diff table â€” what will change, what is unchanged, what is read-only.</p>
+          <div class="step-connector">â†’</div>
         </div>
         <div class="step">
           <div class="step-num">04</div>
           <h3>Apply to Revit</h3>
-          <p>Review the preview and click <strong>Apply Changes</strong>. All edits are committed in a single Revit transaction — fully undoable. A summary shows exactly how many properties were updated.</p>
+          <p>Review the preview and click <strong>Apply Changes</strong>. All edits are committed in a single Revit transaction â€” fully undoable. A summary shows exactly how many properties were updated.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Requirements ────────────────────────────────────────── -->
+  <!-- â”€â”€ Requirements â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <section class="section" id="requirements">
     <div class="container">
       <div class="section-label">Requirements</div>
@@ -696,7 +696,7 @@
     </div>
   </section>
 
-  <!-- ── Video demo ──────────────────────────────────────────── -->
+  <!-- â”€â”€ Video demo â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <section class="section-sm" id="demo">
     <div class="container">
       <div class="section-label">See it in action</div>
@@ -704,7 +704,7 @@
       <div class="video-wrap">
         <iframe
           src="https://www.youtube.com/embed/0IfuLhTW9c4?rel=0&modestbranding=1"
-          title="xlConnect for Revit — Excel round-trip demo"
+          title="xlConnect for Revit â€” Excel round-trip demo"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
@@ -712,13 +712,13 @@
     </div>
   </section>
 
-  <!-- ── Pricing ─────────────────────────────────────────────── -->
+  <!-- â”€â”€ Pricing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <section class="section pricing" id="pricing">
     <div class="container" style="text-align:center">
       <div class="section-label">Pricing</div>
       <h2 class="section-title">Try free. Buy when you're ready.</h2>
       <p class="section-sub pricing-intro" style="margin:0 auto">
-        Start with a full-featured 30-day trial — no credit card, no email required.
+        Start with a full-featured 30-day trial â€” no credit card, no email required.
         Upgrade to a permanent licence whenever you like.
       </p>
 
@@ -730,7 +730,7 @@
             <div class="price-badge badge-trial">Free Trial</div>
           </div>
           <h3>xlConnect for Revit</h3>
-          <p class="tagline">30 days · No credit card needed</p>
+          <p class="tagline">30 days Â· No credit card needed</p>
           <div class="price-free">Free</div>
           <div class="price-period">for 30 days</div>
           <ul class="price-features">
@@ -739,13 +739,13 @@
             <li>Revit 2025 and 2026</li>
             <li>No account, no email required</li>
           </ul>
-          <a href="https://github.com/sanjivkk/archbim/releases/download/v1.0.0/xlConnect_Setup.exe"
+          <a href="https://roominess.archbim.co.in/api/dl/xlconnect"
              class="btn-trial"
              onclick="gtag('event','trial_download',{product:'xlConnect'})">
-            Download Free Trial →
+            Download Free Trial â†’
           </a>
           <div class="price-note">
-            ⬇ &nbsp;~5 MB installer · Windows only
+            â¬‡ &nbsp;~5 MB installer Â· Windows only
           </div>
         </div>
 
@@ -757,9 +757,9 @@
             </div>
           </div>
           <h3>xlConnect for Revit</h3>
-          <p class="tagline">One user · Revit 2025 &amp; 2026</p>
+          <p class="tagline">One user Â· Revit 2025 &amp; 2026</p>
           <div class="price-amount"><sup>$</sup>30</div>
-          <div class="price-period">one-time payment &nbsp;·&nbsp; USD</div>
+          <div class="price-period">one-time payment &nbsp;Â·&nbsp; USD</div>
           <ul class="price-features">
             <li>Everything in the free trial</li>
             <li>Activate on up to 2 machines</li>
@@ -767,10 +767,10 @@
             <li>Email support</li>
           </ul>
           <a href="https://archbim.lemonsqueezy.com/checkout/buy/a8347e7d-9d7f-4170-b9ac-6a419fc1a2c5" class="btn-checkout" onclick="gtag('event','begin_checkout',{product:'xlConnect',value:30,currency:'USD'})">
-            Buy Now — $30
+            Buy Now â€” $30
           </a>
           <div class="price-note">
-            🔒 &nbsp;Secure checkout · VAT included where applicable
+            ðŸ”’ &nbsp;Secure checkout Â· VAT included where applicable
           </div>
         </div>
 
@@ -778,7 +778,7 @@
     </div>
   </section>
 
-  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <!-- â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -796,7 +796,7 @@
           <a href="/refund.html">Refund Policy</a>
         </div>
         <div class="footer-copy">
-          © 2026 ArchBIM. All rights reserved.
+          Â© 2026 ArchBIM. All rights reserved.
         </div>
       </div>
     </div>
